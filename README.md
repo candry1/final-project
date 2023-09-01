@@ -1,6 +1,7 @@
-# Your final project name goes here
+# __final project name__
 
 Charlotte Andry - candry2@uic.edu
+
 Ada Pici Nieves - apici2@uic.edu
 
 https://github.com/candry1/final-project
