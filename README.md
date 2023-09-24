@@ -6,6 +6,10 @@ Ada Pici Nieves - apici2@uic.edu
 
 https://github.com/candry1/final-project
 
+https://getawayguide.onrender.com
+(paste your link here)
+**deployment isn't working on render or netlify. we tried creating both a web service, and a static site, and neither worked. We got this error:  (paste your error here)
+
 ## What does your application do?
 Our application is a vacation planner where you can provide your budget, destination, how many people you're traveling with, and travel dates, and our web app will then provide flight options, lodging options, and  activities all within your budget and travel dates!
 
