@@ -3,7 +3,7 @@
 Charlotte Andry - candry2@uic.edu
 
 Ada Pici Nieves - apici2@uic.edu
-
+Deployed Add: https://getawayguide09.onrender.com/
 https://github.com/candry1/final-project
 
 https://getawayguide.onrender.com
