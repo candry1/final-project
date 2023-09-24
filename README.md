@@ -3,10 +3,12 @@
 Charlotte Andry - candry2@uic.edu
 
 Ada Pici Nieves - apici2@uic.edu
+
 Deployed Add: https://getawayguide09.onrender.com/
+
+
 https://github.com/candry1/final-project
 
-https://getawayguide.onrender.com
 (paste your link here)
 **deployment isn't working on render or netlify. we tried creating both a web service, and a static site, and neither worked. We got this error:  (paste your error here)
 
