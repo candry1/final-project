@@ -12,12 +12,13 @@ function SubmissionForm() {
     });
 
     const handleInput = (event) => {
-        const {name, value} = event.target;
-        console.log(value);
+       
+        const  value = event.target.value;
+        // console.log(value);
 
         setSubmisisonInfo({
             ...submissionInfo,
-            [name]: value
+            [event.target.name]: value
         });
         console.log(submissionInfo);
     }
@@ -32,7 +33,7 @@ function SubmissionForm() {
             <form>
                 <label>
                     Origin City: 
-                    <input name="origin-city" type="text" value={submissionInfo.origin} onChange={handleInput}/>
+                    <input name="origin" type="text" value={submissionInfo.origin} onChange={handleInput}/>
                 </label>
                 <br/>
                 <label>
