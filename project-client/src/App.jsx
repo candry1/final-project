@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
 import Navbar from "./NavBar";
@@ -6,11 +5,6 @@ import Home from "./Home";
 import SubmissionForm from "./Submission";
 
 function App() {
-  const [origin, setOrigin] = useState("");
-  const [destination, setDestination] = useState("");
-  const [budget, setBudget] = useState(0);
-  const [groupSize, setGroupSize] = useState(0);
-  const [travelDates, setTravelDates] = useState("");
 
   return (
     <>
@@ -23,6 +17,7 @@ function App() {
             <Route path="/" element={<Home />} />
           </Routes>
         </BrowserRouter>
+
       </div>
     </>
   )
