@@ -1,16 +1,29 @@
 import * as React from "react";
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 import "./Submission.css";
 
 function SubmissionForm() {
-    const [origin, setOrigin] = useState("");
-    const [destination, setDestination] = useState("");
-    const [budget, setBudget] = useState(0);
-    const [travelDates, setTravelDates] = useState("");   //how do we wanna store them
-    const [groupSize, setGroupSize] = useState(0);
+    const [submissionInfo, setSubmisisonInfo] = useState({
+        origin: "",
+        destination: "",
+        budget: 0,
+        travelDates: "",
+        numOfTravelers: 0
+    });
 
-    const submitForm = () => {
-        console.log("submitted");
+    const handleInput = (event) => {
+        const {name, value} = event.target;
+        console.log(value);
+
+        setSubmisisonInfo({
+            ...submissionInfo,
+            [name]: value
+        });
+        console.log(submissionInfo);
+    }
+
+    const submitForm = (event) => {
+        event.preventDefault();
     };
 
     return (
@@ -18,31 +31,34 @@ function SubmissionForm() {
             <h1>Submission Form</h1>
             <form>
                 <label>
-                    Origin City:
-                    <input type="text" name="name" />
+                    Origin City: 
+                    <input name="origin-city" type="text" value={submissionInfo.origin} onChange={handleInput}/>
                 </label>
+                <br/>
                 <label>
-                    Destination City:
-                    <input type="text" name="name" />
+                    Destination City: 
+                    <input name="destination-city" type="text" value={submissionInfo.destination} onChange={handleInput}/>
                 </label>
+                <br/>
                 <label>
-                    Trip Budget:
-                    <input type="text" name="name" />
+                    Trip Budget: 
+                    <input name="budget" type="text" value={submissionInfo.budget} onChange={handleInput}/>
                 </label>
-                {/* <div></div> */}
+                <br/>
                 <label>
-                    Dates Traveling:
-                    <input type="text" name="name" />
+                    Dates Traveling: 
+                    <input  name="travel-dates" type="text" value={submissionInfo.travelDates} onChange={handleInput}/>
                 </label>
+                <br/>
                 <label>
-                    Number of travelers:
-                    <input type="text" name="name" />
+                    Number of travelers: 
+                    <input  name="num-of-travelers" type="text" value={submissionInfo.numOfTravelers} onChange={handleInput}/>
                 </label>
+                <br/>
                 {/* whenever we submit, the page reloads... */}
                 <button className="submit" onClick={submitForm}>
                     Submit
                 </button> 
-                
             </form>
         </div>
     );
