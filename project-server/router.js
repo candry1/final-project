@@ -21,4 +21,19 @@ router.get(`/${API}/search`, async (req, res) => {
   }
 });
 
+// Querying hotels
+router.get(`/${API}/hotels`, async (req, res) => {
+  const { cityCode } = req.query;
+  // console.log("cityCode:", cityCode); // Log the cityCode
+  const response = await amadeus.referenceData.locations.hotels.byCity.get({
+    cityCode,
+  });
+  // console.log("Response from Amadeus:", response.body); // Log the response
+  try {
+    await res.json(JSON.parse(response.body));
+  } catch (err) {
+    await res.json(err);
+  }
+});
+
 module.exports = router;
