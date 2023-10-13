@@ -1,5 +1,5 @@
 import * as React from "react";
-// import "./Submission.css";
+import "./Submission.css";
 
 function SubmissionForm() {
   return (
