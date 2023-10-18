@@ -30,7 +30,7 @@ function SubmissionForm() {
     return (
         <div className="SubmissionForm">
             <h1>Submission Form</h1>
-            <form>
+            <form action="../../project-server/router.js/api/search" method="get">
                 <label>
                     Origin City: 
                     <input name="origin" type="text" value={submissionInfo.origin} onChange={handleInput}/>

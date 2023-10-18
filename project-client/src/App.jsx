@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Navbar />
-          {/* <Home /> */}
+          <Home />
           <SubmissionForm />
           {/* <Routes>
             <Route path="/" element={<Home />} />
