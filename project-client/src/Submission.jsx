@@ -4,6 +4,7 @@ import { Search } from "./Search";
 import "./Submission.css";
 
 function SubmissionForm() {
+    const [cityCode, setCityCode] = useState(null);
     const [submissionInfo, setSubmisisonInfo] = useState({
         origin: "",
         destination: "",
@@ -36,6 +37,7 @@ function SubmissionForm() {
                     Origin City: 
                     <input name="origin" type="text" value={submissionInfo.origin} onChange={handleInput}/>
                 </label>
+                <Search setCityCode={setCityCode} />
                 <br/>
                 <label>
                     Destination City: 

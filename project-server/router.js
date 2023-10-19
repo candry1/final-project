@@ -9,6 +9,7 @@ const router = express.Router();
 const API = "api";
 // City search suggestions
 router.get(`/${API}/search`, async (req, res) => {
+  console.log("server side here");
   const { keyword } = req.query;
   const response = await amadeus.referenceData.locations.get({
     keyword,

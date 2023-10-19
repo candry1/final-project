@@ -1,9 +1,12 @@
 import axios from "axios";
-
+const { CancelToken } = axios;
 const search = (input) => {
   if (input) {
     try {
-      const request = axios.get(`/api/search?keyword=${input}`);
+      const source = CancelToken.source();
+      const request = axios.get(`/api/search?keyword=${input}`, {
+        cancelToken: source.token,
+      });
       return {
         async process(callback) {
           request.then((response) => {
