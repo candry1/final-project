@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useState, useEffect} from 'react'
+import { Search } from "./Search";
 import "./Submission.css";
 
 function SubmissionForm() {
@@ -56,7 +57,6 @@ function SubmissionForm() {
                     <input  name="numOfTravelers" type="text" value={submissionInfo.numOfTravelers} onChange={handleInput}/>
                 </label>
                 <br/>
-                {/* whenever we submit, the page reloads... */}
                 <button className="submit" onClick={submitForm}>
                     Submit
                 </button> 

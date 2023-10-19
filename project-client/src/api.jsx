@@ -37,3 +37,5 @@ const search = (input) => {
     cancel() {},
   };
 };
+
+export { search }
