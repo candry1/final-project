@@ -38,7 +38,7 @@ function SubmissionForm() {
                 <br/>
                 <label>
                     Destination City: 
-                    <input name="destination-city" type="text" value={submissionInfo.destination} onChange={handleInput}/>
+                    <input name="destination" type="text" value={submissionInfo.destination} onChange={handleInput}/>
                 </label>
                 <br/>
                 <label>
@@ -48,12 +48,12 @@ function SubmissionForm() {
                 <br/>
                 <label>
                     Dates Traveling: 
-                    <input  name="travel-dates" type="text" value={submissionInfo.travelDates} onChange={handleInput}/>
+                    <input  name="travelDates" type="text" value={submissionInfo.travelDates} onChange={handleInput}/>
                 </label>
                 <br/>
                 <label>
                     Number of travelers: 
-                    <input  name="num-of-travelers" type="text" value={submissionInfo.numOfTravelers} onChange={handleInput}/>
+                    <input  name="numOfTravelers" type="text" value={submissionInfo.numOfTravelers} onChange={handleInput}/>
                 </label>
                 <br/>
                 {/* whenever we submit, the page reloads... */}
