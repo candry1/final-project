@@ -1,28 +1,10 @@
 import axios from "axios";
 
-const { CancelToken } = axios;
-
 axios.defaults.baseURL = 'http://localhost:8000';
 const search = (input) => {
   if (input) {
     try {
-      const source = CancelToken.source();
-      var params = new URLSearchParams();
-      var req = {
-        params: params,
-      };
-      axios.get(`/api/search?keyword=${input}`, req)
-    .then((res) => {
-        this.setState({ total: res.data });
-    })
-    .catch((error) => {
-        // here you will have access to error.response
-        console.log(error.response)
-    });
-      const request = axios.get(`/api/search?keyword=${input}`, {
-        cancelToken: source.token,
-      });
-      console.log('request: ', request);
+      const request = axios.get(`/api/search?keyword=${input}`);
       return {
         async process(callback) {
           request.then((response) => {
@@ -42,11 +24,14 @@ const search = (input) => {
             }
           });
         },
-        cancel() {
-          source.cancel();
-        },
+        // No need for cancel function in this version
       };
     } catch (error) {
+      if (axios.isCancel(error)) {
+        console.log('Request was canceled', error.message);
+      } else {
+        console.error('Request failed:', error);
+      }
       console.error(error);
     }
   }
@@ -54,8 +39,8 @@ const search = (input) => {
     process() {
       return [];
     },
-    cancel() {},
+    // No need for cancel function in this version
   };
 };
 
-export { search }
+export { search };
