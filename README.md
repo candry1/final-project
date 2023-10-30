@@ -9,6 +9,8 @@ Deployed App: https://getawayguide09.onrender.com/
 
 https://github.com/candry1/final-project
 
+Frontend deployed: https://getawayguide1234.onrender.com/
+Backend deployed: https://getawayguide123.onrender.com/
 
 ## What does your application do?
 Our application is a vacation planner where you can provide your budget, destination, how many people you're traveling with, and travel dates, and our web app will then provide flight options, lodging options, and  activities all within your budget and travel dates!
