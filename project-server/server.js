@@ -6,7 +6,7 @@ const cors = require("cors"); // Import the cors package
 
 app.use(express.json());
 // app.use(cors({ origin: "http://localhost:5173" })); // Specify the allowed origin
-app.use(cors({ origin: "https://getawayguide1234.onrender.com/" }));
+app.use(cors({ origin: "https://getawayguide123.onrender.com/" }));
 
 // Define your routes and API endpoints here
 // Apply router
