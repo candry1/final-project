@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://getawayguide123.onrender.com"],
+    origin: ["http://localhost:5173", "https://getawayguide1234.onrender.com"],
   })
 );
 
