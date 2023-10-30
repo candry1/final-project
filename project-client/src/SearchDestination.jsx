@@ -5,8 +5,6 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-
-
 // import makeStyles from "@mui/styles";
 import Autocomplete from "@mui/material/Autocomplete";
 import PinIcon from "@mui/icons-material/LocationOn";
@@ -16,34 +14,34 @@ import { search } from "./api";
 
 
 
-const Search = ({ setCityCode, updateOrigin }) => {
+const SearchDestination = ({ setDestinationCode, updateDestination }) => {
+  // const classes = useStyles();
   const [inputValue, setInputValue] = useState("");
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
     const { process, cancel } = search(inputValue);
 
-    process((options) => {
-      setOptions(options);
+    process((searchResults) => {
+      setOptions(searchResults);
     });
-    // console.log("Options:", options);
+
     return cancel;
   }, [inputValue]);
 
   const handleCityChange = (event, newValue) => {
+    console.log('newValue: ', newValue);
     if (newValue) {
-        setCityCode(newValue.code);
-        updateOrigin(newValue.code); // Update the origin in SubmissionForm
+        setDestinationCode(newValue.code);
+        updateDestination(newValue.code); // Update the origin in SubmissionForm
     } else {
-        setCityCode(null);
-        updateOrigin(""); // Reset the origin in SubmissionForm
+        setDestinationCode(null);
+        updateDestination(""); // Reset the origin in SubmissionForm
     }
 };
   return (
     <div>
       <Autocomplete
-        autoComplete
-        autoHighlight
         freeSolo
         options={options}
         inputValue={inputValue}
@@ -51,14 +49,14 @@ const Search = ({ setCityCode, updateOrigin }) => {
           setInputValue(newInputValue);
         }}
         getOptionLabel={(option) =>
-          option.city
-            ? `${option.city}, ${option.state || ''}, ${option.country}`
-            : ""
-        }
+            option.city
+              ? `${option.city}, ${option.state || ''}, ${option.country}`
+              : ""
+          }
         renderInput={(params) => (
-          <TextField
+            <TextField
             {...params}
-            label="Origin City"
+            label="Destination City"
             variant="outlined"
             InputProps={{
               ...params.InputProps,
@@ -77,4 +75,4 @@ const Search = ({ setCityCode, updateOrigin }) => {
   );
 };
 
-export { Search };
+export { SearchDestination };
