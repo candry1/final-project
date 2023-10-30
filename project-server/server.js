@@ -5,10 +5,14 @@ const port = 8000;
 const cors = require("cors"); // Import the cors package
 
 app.use(express.json());
-// app.use(cors({ origin: "http://localhost:5173" })); // Specify the allowed origin
-app.use(cors({ origin: "https://getawayguide123.onrender.com/" }));
 
-// Define your routes and API endpoints here
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://getawayguide123.onrender.com"],
+  })
+);
+
+// Define your routes and API endpoints herevscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-sandbox/workbench/workbench.html
 // Apply router
 app.use("/", router);
 
