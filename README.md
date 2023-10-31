@@ -1,18 +1,12 @@
-# final-project
-# GetawayGuide
+# [GetawayGuide](https://github.com/candry1/final-project)
+## Charlotte Andry - candry2@uic.edu | Ada Pici Nieves - apici2@uic.edu
 
-Charlotte Andry - candry2@uic.edu
+[Frontend deployed](https://getawayguide1234.onrender.com/)  |  [Backend deployed](https://getawayguide123.onrender.com/)  |  [Checkpoint 1 plans](https://getawayguide09.onrender.com/)
 
-Ada Pici Nieves - apici2@uic.edu
+## What does your application currently do?
+With what we have right now, a user can navigate to our website and begin entering input related to their trip. The website can process their starting city, their destination, the amount of people their traveling with, their budget, and their travel dates. With selecting travel dates, we were able to implement a calednar feature, verse just letting our user determine teh formatting of the dates they'll be traveling. We were able to make use of the Amadeus Hotel Search API and the City Search API in order to give the user legitimate options for where they can travel throughout the world. Our Hotel Search is currently working on our backend, and is able to take in some input(through the url) and return raw information to the screen based on what is provided. 
 
-Deployed App: https://getawayguide09.onrender.com/
-
-https://github.com/candry1/final-project
-
-Frontend deployed: https://getawayguide1234.onrender.com/
-Backend deployed: https://getawayguide123.onrender.com/
-
-## What does your application do?
+## What will your application do?
 Our application is a vacation planner where you can provide your budget, destination, how many people you're traveling with, and travel dates, and our web app will then provide flight options, lodging options, and  activities all within your budget and travel dates!
 
 ## What makes it different than a CRUD app? I.e., what functionality does it provide that is not just a user interface layer on top of a database of user information,and the ability to view / add to / change that information?
