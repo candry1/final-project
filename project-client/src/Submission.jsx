@@ -11,14 +11,6 @@ function SubmissionForm({submissionInfo, setSubmissionInfo}) {
     const navigate = useNavigate()
     const [cityCode, setCityCode] = useState(null);
     const [destinationCode, setDestinationCode] = useState(null);
-    // const [submissionInfo, setSubmissionInfo] = useState({
-    //     origin: "",
-    //     destination: "",
-    //     budget: 0,
-    //     checkInDate: "",
-    //     checkOutDate: "",
-    //     numOfTravelers: 0
-    // });
      // Callback function to update submissionInfo.origin
      const updateOrigin = (newOrigin) => {
         setSubmissionInfo({

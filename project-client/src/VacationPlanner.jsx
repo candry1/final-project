@@ -1,4 +1,5 @@
 import React from "react";
+import {Hotels} from './Hotels.jsx'
 
 const VacationPlanner = ({ submissionInfo }) => {
   return (
@@ -10,6 +11,9 @@ const VacationPlanner = ({ submissionInfo }) => {
       <p>Check-In Date: {submissionInfo.checkInDate}</p>
       <p>Check-Out Date: {submissionInfo.checkOutDate}</p>
       <p>Number of Travelers: {submissionInfo.numOfTravelers}</p>
+      <div>
+      <Hotels submissionInfo={submissionInfo}/>
+      </div>
     </div>
   );
 };
