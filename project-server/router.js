@@ -31,16 +31,23 @@ router.get(`/${API}/search`, async (req, res) => {
 
 // Querying hotels
 router.get(`/${API}/hotels`, async (req, res) => {
-  const { cityCode } = req.query;
-  // console.log("cityCode:", cityCode); // Log the cityCode
+  const { cityCode, checkInDate, checkOutDate } = req.query;
+  console.log("checkOutDate: ", checkOutDate);
+  console.log("checkInDate: ", checkInDate);
+  console.log("cityCode:", cityCode); // Log the cityCode
   const response = await amadeus.referenceData.locations.hotels.byCity.get({
     cityCode,
+    // checkInDate,
+    // checkOutDate,
   });
   // console.log("Response from Amadeus:", response.body); // Log the response
   try {
     await res.json(JSON.parse(response.body));
   } catch (err) {
-    await res.json(err);
+    console.error("Error:", err);
+    res
+      .status(500)
+      .json({ error: "An error occurred while processing the request." });
   }
 });
 

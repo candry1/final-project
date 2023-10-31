@@ -43,4 +43,21 @@ const search = (input) => {
   };
 };
 
-export { search };
+const getHotels = async (cityCode) => {
+  try {
+    const response = await axios.get(
+      `/api/hotels?cityCode=${cityCode}`
+    );
+    const json = response.data;
+    console.log('json: ', json);
+
+    if (json && Array.isArray(json.data)) {
+      return json.data;
+    }    
+  } catch (error) {
+    console.error(error);
+  }
+  return [];
+};
+
+export { search, getHotels };
