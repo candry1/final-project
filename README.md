@@ -2,13 +2,11 @@
 
 ## Charlotte Andry - candry2@uic.edu | Ada Pici Nieves - apici2@uic.edu
 
-[Demo](https://clipchamp.com/watch/CPYlmC4dQ4o) | [Frontend deployed](https://getawayguide1234.onrender.com/) | [Backend deployed](https://getawayguide123.onrender.com/) | [Checkpoint 1 plans](https://getawayguide09.onrender.com/)
+[Demo](https://uic.zoom.us/rec/share/RBBu8un2c875CaNBxSBApxer3yeD8PLVZLXKJJ-IsmCe_Te1Aoe_ywBpUdzdwVQD.SznVkzSefv_OWqHw?startTime=1698850145000) | [Frontend deployed](https://getawayguide1234.onrender.com/) | [Backend deployed](https://getawayguide123.onrender.com/) | [Checkpoint 1 plans](https://getawayguide09.onrender.com/)
 
 ## What does your application currently do?
 
-With what we have right now, a user can navigate to our website and begin entering input related to their trip. The website can process their starting city, their destination, the amount of people their traveling with, their budget, and their travel dates. With selecting travel dates, we were able to implement a calednar feature, verse just letting our user determine teh formatting of the dates they'll be traveling. We were able to make use of the Amadeus Hotel Search API and the City Search API in order to give the user legitimate options for where they can travel throughout the world. Our Hotel Search is currently working on our backend, and is able to take in some input(through the url) and return raw information to the screen based on what is provided.
-[Demo](https://uic.zoom.us/rec/share/S_mk8Hjc2yX4XJp5xlLOFc5Tx_3gAJkpsMWZ6tPh5ac8PMO0L3RhRaQn9YYVLg3z.ZkcX6rtunQwEtgdN?startTime=1698850145000) | [Frontend deployed](https://getawayguide1234.onrender.com/)  |  [Backend deployed](https://getawayguide123.onrender.com/)  |  [Checkpoint 1 plans](https://getawayguide09.onrender.com/)
-
+With what we have right now, a user can navigate to our website and begin entering input related to their trip. The website can process their starting city, their destination, the amount of people their traveling with, their budget, and their travel dates. With selecting travel dates, we were able to implement a calednar feature, verse just letting our user determine teh formatting of the dates they'll be traveling. We were able to make use of the Amadeus Hotel Search API and the City Search API in order to give the user legitimate options for where they can travel throughout the world. Our Hotel Search is currently working and is able to take in some input about the destination and return a list of hotels in this city to the screen based on what is provided.
 
 
 ## What does your application currently do?
