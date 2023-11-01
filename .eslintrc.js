@@ -12,7 +12,10 @@ module.exports = {
       },
       files: [".eslintrc.{js,cjs}"],
       parserOptions: {
-        sourceType: "script",
+        project: true,
+        tsconfigRootDir: __dirname,
+        ecmaVersion: "latest",
+        sourceType: "module",
       },
     },
   ],

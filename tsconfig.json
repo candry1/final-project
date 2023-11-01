@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,                                /* Skip type checking all .d.ts files. */
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  },
+  "include": ["project-client/src/**/*.ts"]
+
+
+}

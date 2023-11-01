@@ -2,7 +2,8 @@
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "tsc-init": "tsc --init"
   },
   "devDependencies": {
     "eslint": "^8.52.0",
