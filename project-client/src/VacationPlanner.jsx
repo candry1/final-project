@@ -17,6 +17,16 @@ const VacationPlanner = ({ submissionInfo }) => {
     </div>
   );
 };
+VacationPlanner.propTypes = {
+  submissionInfo: PropTypes.shape({
+    origin: PropTypes.string.isRequired,
+    destination: PropTypes.string.isRequired,
+    budget: PropTypes.number.isRequired,
+    checkInDate: PropTypes.string.isRequired,
+    checkOutDate: PropTypes.string.isRequired,
+    numOfTravelers: PropTypes.number.isRequired,
+  }).isRequired,
+};
 
 VacationPlanner.propTypes = {
   submissionInfo: PropTypes.shape({
