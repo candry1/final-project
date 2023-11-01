@@ -8,9 +8,9 @@
 
 With what we have right now, a user can navigate to our website and begin entering input related to their trip. The website can process their starting city, their destination, the amount of people their traveling with, their budget, and their travel dates. With selecting travel dates, we were able to implement a calednar feature, verse just letting our user determine teh formatting of the dates they'll be traveling. We were able to make use of the Amadeus Hotel Search API and the City Search API in order to give the user legitimate options for where they can travel throughout the world. Our Hotel Search is currently working and is able to take in some input about the destination and return a list of hotels in this city to the screen based on what is provided.
 
-
 ## What does your application currently do?
-With what we have right now, a user can navigate to our website and begin entering input related to their trip. The website can process their starting city, their destination, the amount of people their traveling with, their budget, and their travel dates. With selecting travel dates, we were able to implement a calednar feature, verse just letting our user determine teh formatting of the dates they'll be traveling. We were able to make use of the Amadeus Hotel List API and the City Search API in order to give the user legitimate options for where they can travel throughout the world. Our Hotel Search is currently working and is able to take in the user's destination input and return a list of hotels in the city. 
+
+With what we have right now, a user can navigate to our website and begin entering input related to their trip. The website can process their starting city, their destination, the amount of people their traveling with, their budget, and their travel dates. With selecting travel dates, we were able to implement a calednar feature, verse just letting our user determine teh formatting of the dates they'll be traveling. We were able to make use of the Amadeus Hotel List API and the City Search API in order to give the user legitimate options for where they can travel throughout the world. Our Hotel Search is currently working and is able to take in the user's destination input and return a list of hotels in the city.
 
 ## What will your application do?
 
