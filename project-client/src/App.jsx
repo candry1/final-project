@@ -20,11 +20,8 @@ function App() {
     <>
       <div className="App">
         <BrowserRouter>
-          <Navbar />
-          <Home/>
           <SubmissionForm submissionInfo={submissionInfo} setSubmissionInfo={setSubmissionInfo}/>
           <Routes>
-            <Route path="/" element={<Home />} />
             {/* <Route path="/submission-form" element={<SubmissionForm submissionInfo={submissionInfo} setSubmissionInfo={setSubmissionInfo}/>}/> */}
             <Route path="/vacation-planner" element={<VacationPlanner submissionInfo={submissionInfo} setSubmissionInfo={setSubmissionInfo} />} />
           </Routes>
