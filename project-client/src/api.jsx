@@ -19,7 +19,7 @@ const search = (input) => {
                     country: address.countryName,
                     state: address.stateCode,
                   };
-                })
+                }),
               );
             }
           });

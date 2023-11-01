@@ -25,7 +25,7 @@ try {
           return console.error(err.message);
         }
         console.log(`Connected to the database ${dbName}.db`);
-      }
+      },
     );
   });
 } catch (e) {
