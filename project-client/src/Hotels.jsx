@@ -9,8 +9,10 @@ import {
   makeStyles,
 } from "@mui/material";
 
-import { Apartment as HotelIcon, ExpandMore as ExpandIcon } from "@mui/icons-material";
-
+import {
+  Apartment as HotelIcon,
+  ExpandMore as ExpandIcon,
+} from "@mui/icons-material";
 
 const Hotels = ({ submissionInfo }) => {
   // const [loading, setLoading] = useState(false);
@@ -23,25 +25,24 @@ const Hotels = ({ submissionInfo }) => {
   useEffect(() => {
     if (submissionInfo.destination) {
       // setLoading(true);
-      getHotels(
-        submissionInfo.destination
-      )
-        .then((hotels) => {
-          console.log("Hotel Data:", hotels); // Log the data
-          setHotels(hotels);
-          // setLoading(false);
-        })
+      getHotels(submissionInfo.destination).then((hotels) => {
+        console.log("Hotel Data:", hotels); // Log the data
+        setHotels(hotels);
+        // setLoading(false);
+      });
     } else {
       setHotels(null);
     }
   }, [submissionInfo.destination]);
+
   return (
-    <div >
+    <div>
       {hotels &&
         hotels.map((hotel) => {
-          const { name, hotelId, media} = hotel;
+          const { name, hotelId, media } = hotel;
           const image = media ? media[0].uri : "";
           const active = activeHotelId === hotelId;
+
           return (
             <Accordion
               key={hotelId}
@@ -49,29 +50,17 @@ const Hotels = ({ submissionInfo }) => {
               onChange={handleChange(hotelId)}
             >
               <AccordionSummary expandIcon={<ExpandIcon />}>
-                <div >
-                  <div >
-                    {image ? (
-                      <img
-                        src={image}
-                        alt="HOTEL"
-                      />
-                    ) : (
-                      <HotelIcon  />
-                    )}
+                <div>
+                  <div>
+                    {image ? <img src={image} alt="HOTEL" /> : <HotelIcon />}
                   </div>
                   <div>
-                    <Typography >
-                      {name}
-                    </Typography>
-                    <Typography
-                      color="textSecondary"
-                    >
-                    </Typography>
+                    <Typography>{name}</Typography>
+                    <Typography color="textSecondary"></Typography>
                   </div>
                 </div>
               </AccordionSummary>
-              <AccordionDetails>{/* Display offers */}</AccordionDetails>
+              <AccordionDetails>Display offers</AccordionDetails>
             </Accordion>
           );
         })}

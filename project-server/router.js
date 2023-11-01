@@ -7,6 +7,7 @@ const amadeus = new Amadeus({ clientId: API_KEY, clientSecret: API_SECRET }); //
 const router = express.Router();
 // ...
 const API = "api";
+
 // City search suggestions
 router.get(`/${API}/search`, async (req, res) => {
   console.log("server side here");
