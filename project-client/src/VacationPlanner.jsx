@@ -1,5 +1,5 @@
-import React from "react";
 import { Hotels } from "./Hotels.jsx";
+import PropTypes from "prop-types"; // Import PropTypes
 
 const VacationPlanner = ({ submissionInfo }) => {
   return (
@@ -16,6 +16,17 @@ const VacationPlanner = ({ submissionInfo }) => {
       </div>
     </div>
   );
+};
+
+VacationPlanner.propTypes = {
+  submissionInfo: PropTypes.shape({
+    origin: PropTypes.string.isRequired,
+    destination: PropTypes.string.isRequired,
+    budget: PropTypes.number.isRequired,
+    checkInDate: PropTypes.string.isRequired,
+    checkOutDate: PropTypes.string.isRequired,
+    numOfTravelers: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default VacationPlanner;

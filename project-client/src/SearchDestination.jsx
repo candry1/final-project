@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Grid, InputAdornment, TextField, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import PropTypes from "prop-types"; // Import PropTypes
+import { InputAdornment, TextField } from "@mui/material";
 // import makeStyles from "@mui/styles";
 import Autocomplete from "@mui/material/Autocomplete";
-import PinIcon from "@mui/icons-material/LocationOn";
 import MagnifierIcon from "@mui/icons-material/Search";
-import clsx from "clsx";
 import { search } from "./api";
 
 const SearchDestination = ({ setDestinationCode, updateDestination }) => {
@@ -65,6 +64,11 @@ const SearchDestination = ({ setDestinationCode, updateDestination }) => {
       />
     </div>
   );
+};
+
+SearchDestination.propTypes = {
+  setDestinationCode: PropTypes.func.isRequired, // Define PropTypes for setDestinationCode
+  updateDestination: PropTypes.func.isRequired, // Define PropTypes for updateDestination
 };
 
 export { SearchDestination };

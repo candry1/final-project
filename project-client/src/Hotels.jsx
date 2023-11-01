@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getHotels } from "./api";
+import PropTypes from "prop-types";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  CircularProgress,
   Typography,
-  makeStyles,
 } from "@mui/material";
 
 import {
@@ -66,6 +65,17 @@ const Hotels = ({ submissionInfo }) => {
         })}
     </div>
   );
+};
+
+Hotels.propTypes = {
+  submissionInfo: PropTypes.shape({
+    origin: PropTypes.string.isRequired,
+    destination: PropTypes.string.isRequired,
+    budget: PropTypes.number.isRequired,
+    checkInDate: PropTypes.string.isRequired,
+    checkOutDate: PropTypes.string.isRequired,
+    numOfTravelers: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export { Hotels };

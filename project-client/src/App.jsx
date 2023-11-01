@@ -1,10 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Navbar from "./NavBar";
-import Home from "./Home";
 import SubmissionForm from "./Submission";
 import VacationPlanner from "./VacationPlanner";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function App() {
   const [submissionInfo, setSubmissionInfo] = useState({
@@ -25,7 +23,6 @@ function App() {
             setSubmissionInfo={setSubmissionInfo}
           />
           <Routes>
-            {/* <Route path="/submission-form" element={<SubmissionForm submissionInfo={submissionInfo} setSubmissionInfo={setSubmissionInfo}/>}/> */}
             <Route
               path="/vacation-planner"
               element={
