@@ -1,5 +1,5 @@
 import React from "react";
-import {Hotels} from './Hotels.jsx'
+import { Hotels } from "./Hotels.jsx";
 
 const VacationPlanner = ({ submissionInfo }) => {
   return (
@@ -12,7 +12,7 @@ const VacationPlanner = ({ submissionInfo }) => {
       <p>Check-Out Date: {submissionInfo.checkOutDate}</p>
       <p>Number of Travelers: {submissionInfo.numOfTravelers}</p>
       <div>
-      <Hotels submissionInfo={submissionInfo}/>
+        <Hotels submissionInfo={submissionInfo} />
       </div>
     </div>
   );
