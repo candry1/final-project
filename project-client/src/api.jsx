@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://getawayguide123.onrender.com/';
+axios.defaults.baseURL = "https://getawayguide123.onrender.com/";
 const search = (input) => {
   if (input) {
     try {
@@ -19,7 +19,7 @@ const search = (input) => {
                     country: address.countryName,
                     state: address.stateCode,
                   };
-                })
+                }),
               );
             }
           });
@@ -28,9 +28,9 @@ const search = (input) => {
       };
     } catch (error) {
       if (axios.isCancel(error)) {
-        console.log('Request was canceled', error.message);
+        console.log("Request was canceled", error.message);
       } else {
-        console.error('Request failed:', error);
+        console.error("Request failed:", error);
       }
       console.error(error);
     }
@@ -45,15 +45,13 @@ const search = (input) => {
 
 const getHotels = async (cityCode) => {
   try {
-    const response = await axios.get(
-      `/api/hotels?cityCode=${cityCode}`
-    );
+    const response = await axios.get(`/api/hotels?cityCode=${cityCode}`);
     const json = response.data;
-    console.log('json: ', json);
+    console.log("json: ", json);
 
     if (json && Array.isArray(json.data)) {
       return json.data;
-    }    
+    }
   } catch (error) {
     console.error(error);
   }
