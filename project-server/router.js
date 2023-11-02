@@ -52,4 +52,23 @@ router.get(`/${API}/hotels`, async (req, res) => {
   }
 });
 
+// Querying hotels offers
+router.get(`/${API}/hotel-offers`, async (req, res) => {
+  const { hotelIds, adults } = req.query;
+  console.log("adults: ", adults);
+  console.log("hotelIds: ", hotelIds);
+  const response = await amadeus.referenceData.locations.hotels.byHotels.get({
+    hotelIds,
+    adults,
+  });
+  try {
+    await res.json(JSON.parse(response.body));
+  } catch (err) {
+    console.error("Error:", err);
+    res
+      .status(500)
+      .json({ error: "An error occurred while processing the request." });
+  }
+});
+
 module.exports = router;
