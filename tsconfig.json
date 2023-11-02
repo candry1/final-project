@@ -4,7 +4,8 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "include": ["project-client/src/**/*.ts"]
+  "include": ["project-client/src/**/*.ts"],
+  "rootDir": "."
 
 
 }
