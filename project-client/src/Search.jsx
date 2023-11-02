@@ -68,8 +68,9 @@ const Search = ({ setCityCode, updateOrigin }) => {
 };
 
 Search.propTypes = {
-  setCityCode: PropTypes.func.isRequired, // Define PropTypes for setDestinationCode
-  updateOrigin: PropTypes.func.isRequired, // Define PropTypes for updateDestination
+  setCityCode: PropTypes.func, // Define PropTypes for setCityCode as a function
+  updateOrigin: PropTypes.func.isRequired, // Define PropTypes for updateOrigin as a function
 };
+
 
 export { Search };

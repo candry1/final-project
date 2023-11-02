@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 function SubmissionForm({ submissionInfo, setSubmissionInfo }) {
   const navigate = useNavigate();
-  const [/*cityCode,*/ setCityCode] = useState(null);
-  const [/*destinationCode,*/ setDestinationCode] = useState(null);
+  const [cityCode, setCityCode] = useState(null);
+  const [destinationCode, setDestinationCode] = useState(null);
   // Callback function to update submissionInfo.origin
   const updateOrigin = (newOrigin) => {
     setSubmissionInfo({
@@ -108,14 +108,8 @@ SubmissionForm.propTypes = {
     checkOutDate: PropTypes.string.isRequired,
     numOfTravelers: PropTypes.number.isRequired,
   }).isRequired,
-  setSubmissionInfo: PropTypes.shape({
-    origin: PropTypes.string.isRequired,
-    destination: PropTypes.string.isRequired,
-    budget: PropTypes.number.isRequired,
-    checkInDate: PropTypes.string.isRequired,
-    checkOutDate: PropTypes.string.isRequired,
-    numOfTravelers: PropTypes.number.isRequired,
-  }).isRequired,
+  setSubmissionInfo: PropTypes.func.isRequired, 
 };
+
 
 export default SubmissionForm;

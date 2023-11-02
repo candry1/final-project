@@ -67,7 +67,7 @@ const SearchDestination = ({ setDestinationCode, updateDestination }) => {
 };
 
 SearchDestination.propTypes = {
-  setDestinationCode: PropTypes.func.isRequired, // Define PropTypes for setDestinationCode
+  setDestinationCode: PropTypes.func, // Define PropTypes for setDestinationCode
   updateDestination: PropTypes.func.isRequired, // Define PropTypes for updateDestination
 };
 
