@@ -58,4 +58,19 @@ const getHotels = async (cityCode) => {
   return [];
 };
 
-export { search, getHotels };
+const getHotelPricing = async (hotelId, adults) => {
+  try {
+    const response = await axios.get(`/api/hotel-offers?hotelIds=${hotelId}&adults=${adults}`);
+    const json = response.data;
+    console.log("pricing json: ", json);
+
+    if (json && Array.isArray(json.data)) {
+      return json.data;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+  return [];
+};
+
+export { search, getHotels, getHotelPricing };

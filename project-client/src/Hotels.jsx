@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getHotels } from "./api";
+import { getHotels, getHotelPricing } from "./api";
 import PropTypes from "prop-types";
 import {
   Accordion,
@@ -28,6 +28,12 @@ const Hotels = ({ submissionInfo }) => {
         console.log("Hotel Data:", hotels); // Log the data
         setHotels(hotels);
         // setLoading(false);
+      });
+      console.log("goin into pricing");
+      getHotelPricing("BRCHISRB", 3).then((offer) =>{
+        console.log("got offers!");
+        console.log("pricing info: ", offer);
+        //set pricing info and add it to a list
       });
     } else {
       setHotels(null);

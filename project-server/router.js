@@ -57,7 +57,7 @@ router.get(`/${API}/hotel-offers`, async (req, res) => {
   const { hotelIds, adults } = req.query;
   console.log("adults: ", adults);
   console.log("hotelIds: ", hotelIds);
-  const response = await amadeus.referenceData.locations.hotels.byHotels.get({
+  const response = await amadeus.shopping.hotelOffersSearch.get({
     hotelIds,
     adults,
   });
