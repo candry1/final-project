@@ -1,7 +1,11 @@
 import axios from "axios";
 
+<<<<<<< HEAD
 axios.defaults.baseURL = "http://localhost:8000/";
 // axios.defaults.baseURL = "https://getawayguide123.onrender.com/";
+=======
+axios.defaults.baseURL = "https://getawayguide123.onrender.com/";
+>>>>>>> main
 const search = (input) => {
   if (input) {
     try {
@@ -48,7 +52,7 @@ const getHotels = async (cityCode) => {
   try {
     const response = await axios.get(`/api/hotels?cityCode=${cityCode}`);
     const json = response.data;
-    console.log("json: ", json);
+    // console.log("json: ", json);
 
     if (json && Array.isArray(json.data)) {
       return json.data;
@@ -60,10 +64,20 @@ const getHotels = async (cityCode) => {
 };
 
 const getHotelPricing = async (hotelIds, adults) => {
+  console.log('adults: ', adults);
+  console.log('hotelIds: ', hotelIds);
   console.log("hi");
   try {
-    const response = await axios.get(`/api/hotel-offers?hotelIds=${hotelIds}&adults=${adults}`);
-    console.log('Response:', response);
+    const response = await axios.get(`/api/hotel-offers`, {
+      params: {
+        hotelIds: hotelIds,
+        adults: adults,
+      },
+    });
+    console.log('Response Status:', response.status);
+    console.log('Response Data:', response.data);
+    console.log("gethotels");
+    console.log('response pricing : ', response);
     const json = response.data;
     console.log("pricing json: ", json);
 
@@ -83,5 +97,45 @@ const getHotelPricing = async (hotelIds, adults) => {
   return [];
 };
 
+const getFlights = async (originLocationCode, destinationLocationCode, departureDate, adults ) => {
+  console.log('adults: ', adults);
+  console.log('departureDate: ', departureDate);
+  console.log('destinationLocationCode: ', destinationLocationCode);
+  console.log('originLocationCode: ', originLocationCode);
+  try {
+    const response = await axios.get(`/api/flight-offers`, {
+      params: {
+        originLocationCode: originLocationCode,
+        departureDate: departureDate,
+        destinationLocationCode: destinationLocationCode,
+        adults: adults,
+      },
+    });
+    console.log('Response Status:', response.status);
+    console.log('Response Data:', response.data);
+    console.log("getflights");
+    console.log('flights pricing : ', response);
+    const json = response.data;
+    console.log("flights json: ", json);
 
-export { search, getHotels, getHotelPricing };
+    if (json && json.length > 0) {
+      console.log("it runs here!");
+      console.log("whats this",json);
+      return json;
+    }
+  } catch (error) {
+    console.log("does it ever run here?");
+    if (error.response && error.response.status === 429) {
+      console.warn('Rate limit exceeded. Retrying in 60 seconds...');
+      await new Promise(resolve => setTimeout(resolve, 60000)); // Wait for 60 seconds
+      return getHotelPricing(hotelIds, adults); // Retry the request
+    } else {
+      console.error('Error fetching flights pricing:', error);
+      throw error; // Re-throw other errors
+    }
+  }
+  return [];
+};
+
+
+export { search, getHotels, getHotelPricing, getFlights };

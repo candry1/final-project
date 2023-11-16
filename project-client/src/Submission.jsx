@@ -61,7 +61,7 @@ function SubmissionForm({ submissionInfo, setSubmissionInfo }) {
         </label>
         <br />
         <label>
-          Check In Date
+          Departure Date
           <input
             name="checkInDate"
             type="date"
@@ -71,7 +71,7 @@ function SubmissionForm({ submissionInfo, setSubmissionInfo }) {
           />
         </label>
         <label>
-          Check Out Date
+          Return Date
           <input
             name="checkOutDate"
             type="date"

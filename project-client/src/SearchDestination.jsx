@@ -13,7 +13,6 @@ const SearchDestination = ({ setDestinationCode, updateDestination }) => {
 
   useEffect(() => {
     const { process, cancel } = search(inputValue);
-    console.log('inputValue destination : ', inputValue);
     process((searchResults) => {
       setOptions(searchResults);
     });
