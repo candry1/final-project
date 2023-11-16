@@ -10,7 +10,7 @@ const API = "api";
 
 // City search suggestions
 router.get(`/${API}/search`, async (req, res) => {
-  console.log("server side here");
+  console.log("searching on the server");
   const { keyword } = req.query;
   // console.log("keyword: ", keyword);
 
@@ -54,17 +54,33 @@ router.get(`/${API}/hotels`, async (req, res) => {
 
 // Querying hotels offers
 router.get(`/${API}/hotel-offers`, async (req, res) => {
+  console.log("hello?");
   const { hotelIds, adults } = req.query;
   console.log("adults: ", adults);
   console.log("hotelIds: ", hotelIds);
-  const response = await amadeus.shopping.hotelOffersSearch.get({
-    hotelIds,
-    adults,
-  });
+  // const response = await amadeus.shopping.hotelOffersSearch.get({
+  //   hotelIds,
+  //   adults,
+  // });
+  // console.log("response: ", response);
   try {
-    await res.json(JSON.parse(response.body));
+    const response = await amadeus.shopping.hotelOffersSearch.get({
+      hotelIds,
+      adults,
+    });
+    console.log("response: ", response);
+
+    const json = JSON.parse(response.body);
+
+    if (json && Array.isArray(json.data)) {
+      res.json(json.data);
+    } else {
+      res
+        .status(500)
+        .json({ error: "Invalid response format from Amadeus API." });
+    }
   } catch (err) {
-    console.error("Error3:", err);
+    console.error("Error fetching hotel offers:", err);
     res
       .status(500)
       .json({ error: "An error occurred while processing the request." });
