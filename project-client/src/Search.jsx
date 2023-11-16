@@ -12,7 +12,9 @@ const Search = ({ setCityCode, updateOrigin }) => {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    const { process, cancel } = search(inputValue);
+
+    const { process, cancel } = search(inputValue.split(' ')[0]);
+    console.log('inputValue: ', inputValue);
 
     process((options) => {
       setOptions(options);
@@ -37,9 +39,11 @@ const Search = ({ setCityCode, updateOrigin }) => {
         autoHighlight
         freeSolo
         options={options}
-        inputValue={inputValue}
+        // inputValue={inputValue}
         onInputChange={(event, newInputValue) => {
-          setInputValue(newInputValue);
+          const firstWord = newInputValue.split(',')[0];
+          const withoutComma = firstWord.replace(',', ''); // Remove comma if present
+          setInputValue(withoutComma);
         }}
         getOptionLabel={(option) =>
           option.city

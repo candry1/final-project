@@ -12,18 +12,18 @@ const API = "api";
 router.get(`/${API}/search`, async (req, res) => {
   console.log("server side here");
   const { keyword } = req.query;
-  console.log("keyword: ", keyword);
+  // console.log("keyword: ", keyword);
 
   try {
     const response = await amadeus.referenceData.locations.get({
       keyword,
       subType: Amadeus.location.city,
     });
-    console.log("response: ", response);
+    // console.log("response: ", response);
     // console.log("response body: ", res.json(JSON.parse(response.body)));
     await res.json(JSON.parse(response.body));
   } catch (err) {
-    console.error("Error:", err);
+    console.error("Error1:", err);
     res
       .status(500)
       .json({ error: "An error occurred while processing the request." });
@@ -45,7 +45,7 @@ router.get(`/${API}/hotels`, async (req, res) => {
   try {
     await res.json(JSON.parse(response.body));
   } catch (err) {
-    console.error("Error:", err);
+    console.error("Error2:", err);
     res
       .status(500)
       .json({ error: "An error occurred while processing the request." });
@@ -57,14 +57,14 @@ router.get(`/${API}/hotel-offers`, async (req, res) => {
   const { hotelIds, adults } = req.query;
   console.log("adults: ", adults);
   console.log("hotelIds: ", hotelIds);
-  const response = await amadeus.referenceData.locations.hotels.byHotels.get({
+  const response = await amadeus.shopping.hotelOffersSearch.get({
     hotelIds,
     adults,
   });
   try {
     await res.json(JSON.parse(response.body));
   } catch (err) {
-    console.error("Error:", err);
+    console.error("Error3:", err);
     res
       .status(500)
       .json({ error: "An error occurred while processing the request." });
