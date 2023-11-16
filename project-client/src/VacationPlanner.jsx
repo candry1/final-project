@@ -1,4 +1,5 @@
 import { Hotels } from "./Hotels.jsx";
+import { Flights } from "./Flights.jsx";
 import PropTypes from "prop-types"; // Import PropTypes
 
 const VacationPlanner = ({ submissionInfo }) => {
@@ -13,6 +14,7 @@ const VacationPlanner = ({ submissionInfo }) => {
       <p>Number of Travelers: {submissionInfo.numOfTravelers}</p>
       <div>
         <Hotels submissionInfo={submissionInfo} />
+        <Flights submissionInfo={submissionInfo} />
       </div>
     </div>
   );
