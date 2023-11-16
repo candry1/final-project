@@ -30,11 +30,11 @@ const Hotels = ({ submissionInfo }) => {
         // setLoading(false);
       });
       console.log("goin into pricing");
-      getHotelPricing("BRCHISRB", 3).then((offer) =>{
-        console.log("got offers!");
-        console.log("pricing info: ", offer);
-        //set pricing info and add it to a list
-      });
+      // getHotelPricing("BRCHISRB", 3).then((offer) =>{
+      //   console.log("got offers!");
+      //   console.log("pricing info: ", offer);
+      //   //set pricing info and add it to a list
+      // });
     } else {
       setHotels(null);
     }

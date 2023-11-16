@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://getawayguide123.onrender.com/";
+axios.defaults.baseURL = "http://localhost:8000/";
 const search = (input) => {
   if (input) {
     try {
@@ -58,9 +58,11 @@ const getHotels = async (cityCode) => {
   return [];
 };
 
-const getHotelPricing = async (hotelId, adults) => {
+const getHotelPricing = async (hotelIds, adults) => {
+  console.log("hi");
   try {
-    const response = await axios.get(`/api/hotel-offers?hotelIds=${hotelId}&adults=${adults}`);
+    const response = await axios.get(`/api/hotel-offers?hotelIds=${hotelIds}&adults=${adults}`);
+    console.log('Response:', response);
     const json = response.data;
     console.log("pricing json: ", json);
 
@@ -68,9 +70,17 @@ const getHotelPricing = async (hotelId, adults) => {
       return json.data;
     }
   } catch (error) {
-    console.error(error);
+    if (error.response && error.response.status === 429) {
+      console.warn('Rate limit exceeded. Retrying in 60 seconds...');
+      await new Promise(resolve => setTimeout(resolve, 60000)); // Wait for 60 seconds
+      return getHotelPricing(hotelIds, adults); // Retry the request
+    } else {
+      console.error('Error fetching hotel pricing:', error);
+      throw error; // Re-throw other errors
+    }
   }
   return [];
 };
+
 
 export { search, getHotels, getHotelPricing };

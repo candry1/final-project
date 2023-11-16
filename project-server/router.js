@@ -12,14 +12,14 @@ const API = "api";
 router.get(`/${API}/search`, async (req, res) => {
   console.log("server side here");
   const { keyword } = req.query;
-  console.log("keyword: ", keyword);
+  // console.log("keyword: ", keyword);
 
   try {
     const response = await amadeus.referenceData.locations.get({
       keyword,
       subType: Amadeus.location.city,
     });
-    console.log("response: ", response);
+    // console.log("response: ", response);
     // console.log("response body: ", res.json(JSON.parse(response.body)));
     await res.json(JSON.parse(response.body));
   } catch (err) {
