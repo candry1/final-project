@@ -14,7 +14,6 @@ const Search = ({ setCityCode, updateOrigin }) => {
   useEffect(() => {
 
     const { process, cancel } = search(inputValue.split(' ')[0]);
-    console.log('inputValue: ', inputValue);
 
     process((options) => {
       setOptions(options);

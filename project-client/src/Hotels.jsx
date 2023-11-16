@@ -25,16 +25,18 @@ const Hotels = ({ submissionInfo }) => {
     if (submissionInfo.destination) {
       // setLoading(true);
       getHotels(submissionInfo.destination).then((hotels) => {
-        console.log("Hotel Data:", hotels); // Log the data
+        // console.log("Hotel Data:", hotels); // Log the data
         setHotels(hotels);
         // setLoading(false);
       });
       console.log("goin into pricing");
-      // getHotelPricing("BRCHISRB", 3).then((offer) =>{
-      //   console.log("got offers!");
-      //   console.log("pricing info: ", offer);
-      //   //set pricing info and add it to a list
-      // });
+      getHotelPricing("BRCHISRB, ALCHI347, RTPAR001", 1).then((offer) =>{
+        console.log("got offers!");
+        console.log("pricing info: ", offer);
+        //set pricing info and add it to a list
+      }).catch((error) => {
+        console.error("Error fetching hotel pricing:", error);
+      });
     } else {
       setHotels(null);
     }
