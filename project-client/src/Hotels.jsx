@@ -15,6 +15,7 @@ import {
 
 const Hotels = ({ submissionInfo }) => {
   // const [loading, setLoading] = useState(false);
+  const [listOfResultingHotelIds, setListOfResultingHotelIds] = useState("");
   const [activeHotelId, setActiveHotelId] = useState(false);
   const [hotels, setHotels] = useState(null);
   const handleChange = (hotelId) => (event, expanded) => {
@@ -24,21 +25,31 @@ const Hotels = ({ submissionInfo }) => {
   useEffect(() => {
     if (submissionInfo.destination) {
       // setLoading(true);
-      getHotels(submissionInfo.destination).then((hotels) => {
-        console.log("Hotel Data:", hotels); // Log the data
-        setHotels(hotels);
+      getHotels(submissionInfo.destination).then((h) => {
+        console.log("Hotel Data:", h); // Log the data
+        setHotels(h);
         // setLoading(false);
       });
-      console.log("goin into pricing");
-      // getHotelPricing("BRCHISRB", 3).then((offer) =>{
-      //   console.log("got offers!");
-      //   console.log("pricing info: ", offer);
-      //   //set pricing info and add it to a list
+
+      // hotels.map((hotelInfo) =>{
+      //   const { hotelId } = hotelInfo;
+
+      //   setListOfResultingHotelIds(listOfResultingHotelIds + hotelId + ", ");
+      //   // console.log("hotelId: ", hotelId);
       // });
+
+      console.log(listOfResultingHotelIds);
+      console.log("goin into pricing");
+
+      getHotelPricing(/*hotels*/listOfResultingHotelIds, submissionInfo.numOfTravelers).then((offer) =>{
+        console.log("got offers!");
+        console.log("pricing info: ", offer);
+        //set pricing info and add it to a list
+      });
     } else {
       setHotels(null);
     }
-  }, [submissionInfo.destination]);
+  }, [submissionInfo.destination, submissionInfo.numOfTravelers, hotels]);
 
   return (
     <div>
