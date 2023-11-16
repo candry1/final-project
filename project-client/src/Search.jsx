@@ -41,7 +41,7 @@ const Search = ({ setCityCode, updateOrigin }) => {
         options={options}
         // inputValue={inputValue}
         onInputChange={(event, newInputValue) => {
-          const firstWord = newInputValue.split(' ')[0];
+          const firstWord = newInputValue.split(',')[0];
           const withoutComma = firstWord.replace(',', ''); // Remove comma if present
           setInputValue(withoutComma);
         }}

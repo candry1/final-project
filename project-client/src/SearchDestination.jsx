@@ -13,7 +13,7 @@ const SearchDestination = ({ setDestinationCode, updateDestination }) => {
 
   useEffect(() => {
     const { process, cancel } = search(inputValue);
-
+    console.log('inputValue destination : ', inputValue);
     process((searchResults) => {
       setOptions(searchResults);
     });
@@ -36,9 +36,11 @@ const SearchDestination = ({ setDestinationCode, updateDestination }) => {
       <Autocomplete
         freeSolo
         options={options}
-        inputValue={inputValue}
+        // inputValue={inputValue}
         onInputChange={(event, newInputValue) => {
-          setInputValue(newInputValue);
+          const firstWord = newInputValue.split(',')[0];
+          const withoutComma = firstWord.replace(',', ''); // Remove comma if present
+          setInputValue(withoutComma);
         }}
         getOptionLabel={(option) =>
           option.city

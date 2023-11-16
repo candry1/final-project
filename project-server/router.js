@@ -23,7 +23,7 @@ router.get(`/${API}/search`, async (req, res) => {
     // console.log("response body: ", res.json(JSON.parse(response.body)));
     await res.json(JSON.parse(response.body));
   } catch (err) {
-    console.error("Error:", err);
+    console.error("Error1:", err);
     res
       .status(500)
       .json({ error: "An error occurred while processing the request." });
@@ -45,7 +45,7 @@ router.get(`/${API}/hotels`, async (req, res) => {
   try {
     await res.json(JSON.parse(response.body));
   } catch (err) {
-    console.error("Error:", err);
+    console.error("Error2:", err);
     res
       .status(500)
       .json({ error: "An error occurred while processing the request." });
@@ -64,7 +64,7 @@ router.get(`/${API}/hotel-offers`, async (req, res) => {
   try {
     await res.json(JSON.parse(response.body));
   } catch (err) {
-    console.error("Error:", err);
+    console.error("Error3:", err);
     res
       .status(500)
       .json({ error: "An error occurred while processing the request." });
