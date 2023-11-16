@@ -44,6 +44,7 @@ const Hotels = ({ submissionInfo }) => {
 
   return (
     <div>
+      <h1>Hotels</h1>
       {hotels &&
         hotels.map((hotel) => {
           const { name, hotelId, media } = hotel;
@@ -58,6 +59,7 @@ const Hotels = ({ submissionInfo }) => {
             >
               <AccordionSummary expandIcon={<ExpandIcon />}>
                 <div>
+            
                   <div>
                     {image ? <img src={image} alt="HOTEL" /> : <HotelIcon />}
                   </div>
