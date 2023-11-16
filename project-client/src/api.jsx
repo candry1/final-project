@@ -1,11 +1,8 @@
 import axios from "axios";
 
-<<<<<<< HEAD
 axios.defaults.baseURL = "http://localhost:8000/";
 // axios.defaults.baseURL = "https://getawayguide123.onrender.com/";
-=======
 axios.defaults.baseURL = "https://getawayguide123.onrender.com/";
->>>>>>> main
 const search = (input) => {
   if (input) {
     try {
