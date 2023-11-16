@@ -49,7 +49,9 @@ const getHotels = async (cityCode) => {
   try {
     const response = await axios.get(`/api/hotels?cityCode=${cityCode}`);
     const json = response.data;
-    // console.log("json: ", json);
+    console.log("json: ", json);
+    // console.log("state hotel: ", );
+
 
     if (json && Array.isArray(json.data)) {
       return json.data;
