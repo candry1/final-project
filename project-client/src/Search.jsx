@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { InputAdornment, TextField } from "@mui/material";
+import { InputAdornment, TextField, CircularProgress} from "@mui/material";
 import PropTypes from "prop-types"; // Import PropTypes
 
 // import makeStyles from "@mui/styles";
@@ -10,16 +10,35 @@ import { search } from "./api";
 const Search = ({ setCityCode, updateOrigin }) => {
   const [inputValue, setInputValue] = useState("");
   const [options, setOptions] = useState([]);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    console.log(loading);
+    const initiateSearch = async () => {
+      setLoading(true); // Set loading to true when starting the search
+      const { process, cancel } = search(inputValue);
+      process((searchResults) => {
+        setOptions(searchResults);
+        setLoading(false);
+      });
 
-    const { process, cancel } = search(inputValue.split(' ')[0]);
+      // After search is complete, set loading to false
+      setLoading(false);
+    };
 
-    process((options) => {
-      setOptions(options);
-    });
-    // console.log("Options:", options);
-    return cancel;
+    // If there's an inputValue, initiate the search
+    if (inputValue) {
+      initiateSearch();
+    } else {
+      // If inputValue is empty, reset options and loading
+      setOptions([]);
+      setLoading(false);
+    }
+
+    // Cleanup function
+    return () => {
+      setLoading(false); // Set loading to false if component is unmounted
+    };
   }, [inputValue]);
 
   const handleCityChange = (event, newValue) => {
@@ -66,6 +85,7 @@ const Search = ({ setCityCode, updateOrigin }) => {
         )}
         onChange={handleCityChange}
       />
+      {loading && <CircularProgress size={24} />}
     </div>
   );
 };
