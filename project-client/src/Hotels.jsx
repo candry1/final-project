@@ -21,40 +21,51 @@ const Hotels = ({ submissionInfo }) => {
     setActiveHotelId(expanded ? hotelId : false);
   };
 
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
   useEffect(() => {
-    if (submissionInfo.destination) {
+    const fetchData = async () => {
+      if (submissionInfo.destination) {
+        try {
+          const hotelData = await getHotels(submissionInfo.destination);
+          console.log('hotelData: ', hotelData);
+          setHotels(hotelData);
+          const hotelIdsArray = hotelData.map((hotel) => hotel.hotelId);
+          console.log("listOfResultingHotelIds", listOfResultingHotelIds);
+          setListOfResultingHotelIds(hotelIdsArray)
 
-      getHotels(submissionInfo.destination).then((h) => {
-        console.log("Hotel Data:", h); // Log the data
-        setHotels(h);
-        console.log("state hotel: ", hotels);
-      });
-
-      console.log("hotels: ", hotels);
-
-      var hotelIdsString = hotels.map(hotel => hotel.hotelId).join(',%20');
-
-      console.log("hotelIdsString: ", hotelIdsString);
-
-
-      // hotels.map((hotelInfo) =>{
-      //   const { hotelId } = hotelInfo;
-
-      //   console.log("before gethotelpricing");
-      //   getHotelPricing(/*"BRCHISRB, ALCHI347, RTPAR001"*/hotelId, 1).then((offer) =>{
-      //     console.log("pricing info: ", offer);
-      //     //set pricing info and add it to a list
-      //   }).catch((error) => {
-      //     console.error("Error fetching hotel pricing:", error);
-      //   });
-        
-      // });
+          const pricingPromises = hotelIdsArray.map(async (hotelId) => {
+            try {
+              await delay(5000); // Wait for 1 second between requests
+              const pricingOffer = await getHotelPricing(hotelId, 1);
+              
+              console.log(`Pricing info for hotel ${hotelId}: `, pricingOffer);
+              // Set pricing info and add it to a list if needed
+              if (pricingOffer && pricingOffer.length > 0) {
+                // Pricing offer array is not empty
+                console.log(`Number of offers for hotel ${hotelId}: ${pricingOffer.length}`);
+                // Set pricing info and add it to a list if needed
+                setAllHotels((prevHotels) => [...prevHotels, { hotelId, pricingOffer }]);
+              } 
+            } catch (error) {
+              console.error(`Error fetching hotel pricing for ${hotelId}:`, error);
+            }
+          });
 
 
-    } else {
-      setHotels(null);
-    }
-  }, [submissionInfo.destination, submissionInfo.numOfTravelers, hotels]);
+          await Promise.all(pricingPromises); // Wait for all pricing requests to finish
+        } catch (error) {
+          console.error("Error fetching hotel data:", error);
+        }
+      } else {
+        setHotels([]);
+      }
+    };
+
+
+    fetchData();
+  }, [submissionInfo.destination, submissionInfo.numOfTravelers]);
+
 
   return (
     <div>

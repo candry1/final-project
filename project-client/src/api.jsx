@@ -2,7 +2,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:8000/";
 // axios.defaults.baseURL = "https://getawayguide123.onrender.com/";
-axios.defaults.baseURL = "https://getawayguide123.onrender.com/";
+// axios.defaults.baseURL = "https://getawayguide123.onrender.com/";
 const search = (input) => {
   if (input) {
     try {
@@ -49,11 +49,11 @@ const getHotels = async (cityCode) => {
   try {
     const response = await axios.get(`/api/hotels?cityCode=${cityCode}`);
     const json = response.data;
-    console.log("json: ", json);
-    // console.log("state hotel: ", );
+    console.log("json: ", json.data);
 
-
+    console.log('Array.isArray(json.data): ', Array.isArray(json.data));
     if (json && Array.isArray(json.data)) {
+      
       return json.data;
     }
   } catch (error) {
@@ -63,9 +63,9 @@ const getHotels = async (cityCode) => {
 };
 
 const getHotelPricing = async (hotelIds, adults) => {
-  console.log('adults: ', adults);
-  console.log('hotelIds: ', hotelIds);
-  console.log("hi");
+  // console.log('adults: ', adults);
+  // console.log('hotelIds: ', hotelIds);
+  // console.log("hi");
   try {
     const response = await axios.get(`/api/hotel-offers`, {
       params: {
@@ -73,15 +73,15 @@ const getHotelPricing = async (hotelIds, adults) => {
         adults: adults,
       },
     });
-    console.log('Response Status:', response.status);
-    console.log('Response Data:', response.data);
-    console.log("gethotels");
-    console.log('response pricing : ', response);
+    // console.log('Response Status:', response.status);
+    // console.log('Response Data:', response.data);
+    // console.log("gethotels");
+    // console.log('response pricing : ', response);
     const json = response.data;
     console.log("pricing json: ", json);
 
     if (json && Array.isArray(json.data)) {
-      return json.data;
+      return json;
     }
   } catch (error) {
     if (error.response && error.response.status === 429) {

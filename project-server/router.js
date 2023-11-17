@@ -54,10 +54,14 @@ router.get(`/${API}/hotels`, async (req, res) => {
 
 // Querying hotels offers
 router.get(`/${API}/hotel-offers`, async (req, res) => {
-  // console.log("hello?");
+  console.log("hello?");
   const { hotelIds, adults } = req.query;
-  console.log("adults: ", adults);
-  // console.log("hotelIds: ", hotelIds);
+  console.log("req.query: ", req.query);
+  // const response = await amadeus.shopping.hotelOffersSearch.get({
+  //   hotelIds,
+  //   adults,
+  // });
+  // console.log("response: ", response);
   try {
     const response = await amadeus.shopping.hotelOffersSearch.get({
       hotelIds,
@@ -76,45 +80,6 @@ router.get(`/${API}/hotel-offers`, async (req, res) => {
     }
   } catch (err) {
     console.error("Error fetching hotel offers:", err);
-    res
-      .status(500)
-      .json({ error: "An error occurred while processing the request." });
-  }
-});
-
-router.get(`/${API}/flight-offers`, async (req, res) => {
-  try {
-    const currencyCode = "USD";
-    const {
-      originLocationCode,
-      destinationLocationCode,
-      departureDate,
-      adults,
-      returnDate,
-      maxPrice,
-    } = req.query;
-    console.log("req.query: ", req.query);
-
-    const response = await amadeus.shopping.flightOffersSearch.get({
-      originLocationCode,
-      destinationLocationCode,
-      departureDate,
-      adults,
-      currencyCode,
-      returnDate,
-      maxPrice,
-    });
-    const json = JSON.parse(response.body);
-
-    if (json && Array.isArray(json.data)) {
-      res.json(json.data);
-    } else {
-      res
-        .status(500)
-        .json({ error: "Invalid response format from Amadeus API." });
-    }
-  } catch (err) {
-    console.error("Error fetching flight offers:", err);
     res
       .status(500)
       .json({ error: "An error occurred while processing the request." });
