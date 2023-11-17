@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types"; // Import PropTypes
-import { InputAdornment, TextField } from "@mui/material";
+import { InputAdornment, TextField, CircularProgress} from "@mui/material";
 // import makeStyles from "@mui/styles";
 import Autocomplete from "@mui/material/Autocomplete";
 import MagnifierIcon from "@mui/icons-material/Search";
@@ -10,14 +10,35 @@ const SearchDestination = ({ setDestinationCode, updateDestination }) => {
   // const classes = useStyles();
   const [inputValue, setInputValue] = useState("");
   const [options, setOptions] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const { process, cancel } = search(inputValue);
-    process((searchResults) => {
-      setOptions(searchResults);
-    });
+    console.log(loading);
+    const initiateSearch = async () => {
+      setLoading(true); // Set loading to true when starting the search
+      const { process, cancel } = search(inputValue);
+      process((searchResults) => {
+        setOptions(searchResults);
+        setLoading(false);
+      });
 
-    return cancel;
+      // After search is complete, set loading to false
+      setLoading(false);
+    };
+
+    // If there's an inputValue, initiate the search
+    if (inputValue) {
+      initiateSearch();
+    } else {
+      // If inputValue is empty, reset options and loading
+      setOptions([]);
+      setLoading(false);
+    }
+
+    // Cleanup function
+    return () => {
+      setLoading(false); // Set loading to false if component is unmounted
+    };
   }, [inputValue]);
 
   const handleCityChange = (event, newValue) => {
@@ -63,6 +84,7 @@ const SearchDestination = ({ setDestinationCode, updateDestination }) => {
         )}
         onChange={handleCityChange}
       />
+      {loading && <CircularProgress size={24} />}
     </div>
   );
 };

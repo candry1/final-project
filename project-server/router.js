@@ -84,11 +84,14 @@ router.get(`/${API}/hotel-offers`, async (req, res) => {
 
 router.get(`/${API}/flight-offers`, async (req, res) => {
   try {
+    const currencyCode = "USD";
     const {
       originLocationCode,
       destinationLocationCode,
       departureDate,
       adults,
+      returnDate,
+      maxPrice,
     } = req.query;
     console.log("req.query: ", req.query);
 
@@ -97,6 +100,9 @@ router.get(`/${API}/flight-offers`, async (req, res) => {
       destinationLocationCode,
       departureDate,
       adults,
+      currencyCode,
+      returnDate,
+      maxPrice,
     });
     const json = JSON.parse(response.body);
 
