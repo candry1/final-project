@@ -92,11 +92,7 @@ const getHotelPricing = async (hotelIds, adults) => {
   return [];
 };
 
-const getFlights = async (originLocationCode, destinationLocationCode, departureDate, adults ) => {
-  console.log('adults: ', adults);
-  console.log('departureDate: ', departureDate);
-  console.log('destinationLocationCode: ', destinationLocationCode);
-  console.log('originLocationCode: ', originLocationCode);
+const getFlights = async (originLocationCode, destinationLocationCode, departureDate, adults, returnDate, maxPrice ) => {
   try {
     const response = await axios.get(`/api/flight-offers`, {
       params: {
@@ -104,6 +100,10 @@ const getFlights = async (originLocationCode, destinationLocationCode, departure
         departureDate: departureDate,
         destinationLocationCode: destinationLocationCode,
         adults: adults,
+        currencyCode: "USD",
+        returnDate: returnDate,
+        maxPrice: maxPrice,
+        
       },
     });
     console.log('Response Status:', response.status);
