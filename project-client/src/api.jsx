@@ -78,9 +78,9 @@ const getHotelPricing = async (hotelIds, adults) => {
     // console.log("gethotels");
     // console.log('response pricing : ', response);
     const json = response.data;
-    console.log("pricing json: ", json);
 
-    if (json && Array.isArray(json.data)) {
+    if (json /*&& Array.isArray(json.data)*/) {
+      console.log("pricing json: ", json);
       return json;
     }
   } catch (error) {

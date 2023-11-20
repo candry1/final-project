@@ -17,40 +17,60 @@ const Hotels = ({ submissionInfo }) => {
   const [listOfResultingHotelIds, setListOfResultingHotelIds] = useState("");
   const [activeHotelId, setActiveHotelId] = useState(false);
   const [hotels, setHotels] = useState(null);
+  const [hotelAndPricingArray, setHotelAndPricingArray] = useState([]);
   const handleChange = (hotelId) => (event, expanded) => {
     setActiveHotelId(expanded ? hotelId : false);
   };
 
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+  const chunkArray = (array, chunkSize) => {
+    const result = [];
+    for (let i = 0; i < array.length; i += chunkSize) {
+      result.push(array.slice(i, i + chunkSize));
+    }
+    return result;
+  };
+  
+
   useEffect(() => {
     const fetchData = async () => {
       if (submissionInfo.destination) {
         try {
           const hotelData = await getHotels(submissionInfo.destination);
-          console.log('hotelData: ', hotelData);
+          // console.log('hotelData: ', hotelData);
           setHotels(hotelData);
           const hotelIdsArray = hotelData.map((hotel) => hotel.hotelId);
-          console.log("listOfResultingHotelIds", listOfResultingHotelIds);
+          // console.log("listOfResultingHotelIds", listOfResultingHotelIds);
           setListOfResultingHotelIds(hotelIdsArray)
 
-          const pricingPromises = hotelIdsArray.map(async (hotelId) => {
-            try {
-              await delay(5000); // Wait for 1 second between requests
-              const pricingOffer = await getHotelPricing(hotelId, 1);
-              
-              console.log(`Pricing info for hotel ${hotelId}: `, pricingOffer);
-              // Set pricing info and add it to a list if needed
-              if (pricingOffer && pricingOffer.length > 0) {
-                // Pricing offer array is not empty
-                console.log(`Number of offers for hotel ${hotelId}: ${pricingOffer.length}`);
+          const chunkedHotelIds = chunkArray(hotelIdsArray, 99);
+          console.log("Chunkhotelid: ", chunkedHotelIds);
+
+          for (const chunk of chunkedHotelIds) {
+
+
+            const pricingPromises = chunk.map(async (hotelId) => {
+              try {
+                await delay(5000); // Wait for 1 second between requests
+                const pricingOffer = await getHotelPricing(hotelId, 1);
+                
+                console.log(`Pricing info for hotel ${hotelId}: `, pricingOffer);
                 // Set pricing info and add it to a list if needed
-                setAllHotels((prevHotels) => [...prevHotels, { hotelId, pricingOffer }]);
-              } 
-            } catch (error) {
-              console.error(`Error fetching hotel pricing for ${hotelId}:`, error);
-            }
-          });
+                if (pricingOffer) {
+                  // Pricing offer array is not empty
+                  console.log(`Number of offers for hotel ${hotelId}: ${pricingOffer.length}`);
+                  // Set pricing info and add it to a list if needed
+                  setHotelAndPricingArray((prevHotels) => [...prevHotels, { hotelId }]);
+                  console.log("hotelprinsgugfdgsyuhgx: ", hotelAndPricingArray);
+                } 
+              } catch (error) {
+                console.error(`Error fetching hotel pricing for ${hotelId}:`, error);
+              }
+            });
+          }
+          // console.log("hotelprinsgugfdgsyuhgx: ", hotelAndPricingArray);
+
 
 
           await Promise.all(pricingPromises); // Wait for all pricing requests to finish
@@ -70,8 +90,8 @@ const Hotels = ({ submissionInfo }) => {
   return (
     <div>
       <h1>Hotels</h1>
-      {hotels &&
-        hotels.map((hotel) => {
+      {hotelAndPricingArray &&
+        hotelAndPricingArray.map((hotel) => {
           const { name, hotelId, media } = hotel;
           const image = media ? media[0].uri : "";
           const active = activeHotelId === hotelId;
