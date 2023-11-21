@@ -7,10 +7,12 @@ const search = (input) => {
   if (input) {
     try {
       const request = axios.get(`/api/search?keyword=${input}`);
+      // console.log(request);
       return {
         async process(callback) {
           request.then((response) => {
             const json = response.data;
+            // console.log("json test info: " + json.data);
 
             if (json && json.data) {
               callback(
@@ -37,6 +39,7 @@ const search = (input) => {
       console.error(error);
     }
   }
+  console.log("something went wronggggggggg");
   return {
     process() {
       return [];

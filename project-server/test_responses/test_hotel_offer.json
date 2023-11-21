@@ -1,0 +1,58 @@
+{
+  "data": [
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "ALCHI347",
+        "chainCode": "AL",
+        "dupeId": "700157102",
+        "name": "Aloft Bolingbrook",
+        "cityCode": "CHI",
+        "latitude": 41.71604,
+        "longitude": -88.03906
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "YYSAE7QAYS",
+          "checkInDate": "2023-11-21",
+          "checkOutDate": "2023-11-22",
+          "rateCode": "S9R",
+          "rateFamilyEstimated": { "code": "SRS", "type": "C" },
+          "room": {
+            "type": "XMI",
+            "typeEstimated": { "beds": 1, "bedType": "KING" },
+            "description": {
+              "text": "Marriott Senior Discount, includes\n1 King, Mini fridge, 285sqft/26sqm, Wireless\ninternet, complimentary, Coffee/tea maker,",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "105.00",
+            "total": "122.85",
+            "variations": {
+              "average": { "base": "105.00" },
+              "changes": [
+                {
+                  "startDate": "2023-11-21",
+                  "endDate": "2023-11-22",
+                  "base": "105.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "amount": "122.85", "deadline": "2023-11-19T23:59:00-06:00" }
+            ]
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/YYSAE7QAYS"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=ALCHI347&adults=2"
+    }
+  ]
+}

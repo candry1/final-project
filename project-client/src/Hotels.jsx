@@ -15,6 +15,7 @@ import {
 
 const Hotels = ({ submissionInfo }) => {
   const [listOfResultingHotelIds, setListOfResultingHotelIds] = useState("");
+  const [currentSelectedFlightPrice, setCurrentSelectedFlightPrice] = useState(0);
   const [activeHotelId, setActiveHotelId] = useState(false);
   const [hotels, setHotels] = useState(null);
   const [hotelAndPricingArray, setHotelAndPricingArray] = useState([]);
@@ -24,6 +25,7 @@ const Hotels = ({ submissionInfo }) => {
 
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+  // TODO: MAKE INTO A STRING NOT AN ARRAY
   const chunkArray = (array, chunkSize) => {
     const result = [];
     for (let i = 0; i < array.length; i += chunkSize) {
@@ -44,13 +46,13 @@ const Hotels = ({ submissionInfo }) => {
           // console.log("listOfResultingHotelIds", listOfResultingHotelIds);
           setListOfResultingHotelIds(hotelIdsArray)
 
-          const chunkedHotelIds = chunkArray(hotelIdsArray, 99);
+          const chunkedHotelIds = chunkArray(hotelIdsArray, 50);
           console.log("Chunkhotelid: ", chunkedHotelIds);
 
-          for (const chunk of chunkedHotelIds) {
+          // for (const chunk of chunkedHotelIds) {
 
 
-            const pricingPromises = chunk.map(async (hotelId) => {
+            const pricingPromises = chunkedHotelIds.map(async (hotelId) => {
               try {
                 await delay(5000); // Wait for 1 second between requests
                 const pricingOffer = await getHotelPricing(hotelId, 1);
@@ -68,8 +70,6 @@ const Hotels = ({ submissionInfo }) => {
                 console.error(`Error fetching hotel pricing for ${hotelId}:`, error);
               }
             });
-          }
-          // console.log("hotelprinsgugfdgsyuhgx: ", hotelAndPricingArray);
 
 
 
@@ -91,7 +91,7 @@ const Hotels = ({ submissionInfo }) => {
     <div>
       <h1>Hotels</h1>
       {hotelAndPricingArray &&
-        hotelAndPricingArray.map((hotel) => {
+        hotelAndPricingArray.filter((hotel) => hotel.price <= (budget - currentSelectedFlightPrice)).map((hotel) => {
           const { name, hotelId, media } = hotel;
           const image = media ? media[0].uri : "";
           const active = activeHotelId === hotelId;

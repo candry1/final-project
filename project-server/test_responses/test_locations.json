@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "count": 6,
+    "links": {
+      "self": "https://test.api.amadeus.com/v1/reference-data/locations?subType=CITY&keyword=Chic"
+    }
+  },
+  "data": [
+    {
+      "type": "location",
+      "subType": "CITY",
+      "name": "CHICAGO",
+      "detailedName": "CHICAGO/IL/US",
+      "id": "CCHI",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/CCHI",
+        "methods": ["GET"]
+      },
+      "timeZoneOffset": "-06:00",
+      "iataCode": "CHI",
+      "geoCode": {
+        "latitude": 41.85,
+        "longitude": -87.65
+      },
+      "address": {
+        "cityName": "CHICAGO",
+        "cityCode": "CHI",
+        "countryName": "UNITED STATES OF AMERICA",
+        "countryCode": "US",
+        "stateCode": "IL",
+        "regionCode": "NAMER"
+      },
+      "analytics": {
+        "travelers": {
+          "score": 62
+        }
+      }
+    },
+    {
+      "type": "location",
+      "subType": "CITY",
+      "name": "CHICKEN",
+      "detailedName": "CHICKEN/AK/US",
+      "id": "CCKX",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/CCKX",
+        "methods": ["GET"]
+      },
+      "timeZoneOffset": "-09:00",
+      "iataCode": "CKX",
+      "geoCode": {
+        "latitude": 64.08,
+        "longitude": -141.89999
+      },
+      "address": {
+        "cityName": "CHICKEN",
+        "cityCode": "CKX",
+        "countryName": "UNITED STATES OF AMERICA",
+        "countryCode": "US",
+        "stateCode": "AK",
+        "regionCode": "NAMER"
+      },
+      "analytics": {
+        "travelers": {
+          "score": 1
+        }
+      }
+    },
+    {
+      "type": "location",
+      "subType": "CITY",
+      "name": "CHICKASHA",
+      "detailedName": "CHICKASHA/OK/US",
+      "id": "CCHK",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/CCHK",
+        "methods": ["GET"]
+      },
+      "timeZoneOffset": "-06:00",
+      "iataCode": "CHK",
+      "geoCode": {
+        "latitude": 35.03,
+        "longitude": -97.97
+      },
+      "address": {
+        "cityName": "CHICKASHA",
+        "cityCode": "CHK",
+        "countryName": "UNITED STATES OF AMERICA",
+        "countryCode": "US",
+        "stateCode": "OK",
+        "regionCode": "NAMER"
+      }
+    },
+    {
+      "type": "location",
+      "subType": "CITY",
+      "name": "CHICO",
+      "detailedName": "CHICO/CA/US",
+      "id": "CCIC",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/CCIC",
+        "methods": ["GET"]
+      },
+      "timeZoneOffset": "-08:00",
+      "iataCode": "CIC",
+      "geoCode": {
+        "latitude": 39.8,
+        "longitude": -121.9
+      },
+      "address": {
+        "cityName": "CHICO",
+        "cityCode": "CIC",
+        "countryName": "UNITED STATES OF AMERICA",
+        "countryCode": "US",
+        "stateCode": "CA",
+        "regionCode": "NAMER"
+      }
+    },
+    {
+      "type": "location",
+      "subType": "CITY",
+      "name": "CHICHEN ITZA",
+      "detailedName": "CHICHEN ITZA/MX",
+      "id": "CCZA",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/CCZA",
+        "methods": ["GET"]
+      },
+      "timeZoneOffset": "-06:00",
+      "iataCode": "CZA",
+      "geoCode": {
+        "latitude": 20.64139,
+        "longitude": -88.44611
+      },
+      "address": {
+        "cityName": "CHICHEN ITZA",
+        "cityCode": "CZA",
+        "countryName": "MEXICO",
+        "countryCode": "MX",
+        "regionCode": "NAMER"
+      }
+    },
+    {
+      "type": "location",
+      "subType": "CITY",
+      "name": "CHICHESTER",
+      "detailedName": "CHICHESTER/GB",
+      "id": "CQUG",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/CQUG",
+        "methods": ["GET"]
+      },
+      "timeZoneOffset": "+00:00",
+      "iataCode": "QUG",
+      "geoCode": {
+        "latitude": 50.83001,
+        "longitude": -0.8
+      },
+      "address": {
+        "cityName": "CHICHESTER",
+        "cityCode": "QUG",
+        "countryName": "UNITED KINGDOM",
+        "countryCode": "GB",
+        "regionCode": "EUROP"
+      }
+    }
+  ]
+}
