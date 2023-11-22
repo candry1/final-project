@@ -5,10 +5,11 @@ import { SearchDestination } from "./SearchDestination";
 import "./Submission.css";
 import { useNavigate } from "react-router-dom";
 
-function SubmissionForm({ submissionInfo, setSubmissionInfo }) {
+function SubmissionForm({ submissionInfo, setSubmissionInfo,onSubmit, setOnSubmit }) {
   const navigate = useNavigate();
   const [cityCode, setCityCode] = useState(null);
   const [destinationCode, setDestinationCode] = useState(null);
+  // const [onSubmit,setOnSubmit ] = useState(false);
   // Callback function to update submissionInfo.origin
   const updateOrigin = (newOrigin) => {
     setSubmissionInfo({
@@ -35,6 +36,7 @@ function SubmissionForm({ submissionInfo, setSubmissionInfo }) {
   };
 
   const submitForm = (event) => {
+    setOnSubmit(true);
     event.preventDefault();
     navigate("/vacation-planner");
   };
