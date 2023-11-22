@@ -5,6 +5,7 @@ import VacationPlanner from "./VacationPlanner";
 import { useState } from "react";
 
 function App() {
+  const [onSubmit,setOnSubmit ] = useState(false);
   const [submissionInfo, setSubmissionInfo] = useState({
     origin: "",
     destination: "",
@@ -21,6 +22,8 @@ function App() {
           <SubmissionForm
             submissionInfo={submissionInfo}
             setSubmissionInfo={setSubmissionInfo}
+            onSubmit={onSubmit}
+            setOnSubmit={setOnSubmit}
           />
           <Routes>
             <Route
@@ -29,6 +32,8 @@ function App() {
                 <VacationPlanner
                   submissionInfo={submissionInfo}
                   setSubmissionInfo={setSubmissionInfo}
+                  onSubmit={onSubmit}
+                  setOnSubmit={setOnSubmit}
                 />
               }
             />

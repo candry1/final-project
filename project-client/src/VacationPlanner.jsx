@@ -1,8 +1,10 @@
 import { Hotels } from "./Hotels.jsx";
 import { Flights } from "./Flights.jsx";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types"; // Import PropTypes
 
-const VacationPlanner = ({ submissionInfo }) => {
+const VacationPlanner = ({ submissionInfo, onSubmit}) => {
+
   return (
     <div>
       <h2>Vacation Planner</h2>
@@ -13,7 +15,7 @@ const VacationPlanner = ({ submissionInfo }) => {
       <p>Check-Out Date: {submissionInfo.checkOutDate}</p>
       <p>Number of Travelers: {submissionInfo.numOfTravelers}</p>
       <div>
-        <Hotels submissionInfo={submissionInfo} />
+        <Hotels submissionInfo={submissionInfo} onSubmit={onSubmit}/>
         <Flights submissionInfo={submissionInfo} />
       </div>
     </div>
