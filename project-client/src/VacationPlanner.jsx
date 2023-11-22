@@ -16,7 +16,7 @@ const VacationPlanner = ({ submissionInfo, onSubmit}) => {
       <p>Number of Travelers: {submissionInfo.numOfTravelers}</p>
       <div>
         <Hotels submissionInfo={submissionInfo} onSubmit={onSubmit}/>
-        <Flights submissionInfo={submissionInfo} />
+        <Flights submissionInfo={submissionInfo} onSubmit={onSubmit} />
       </div>
     </div>
   );

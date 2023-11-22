@@ -14,7 +14,7 @@ import {
   ExpandMore as ExpandIcon,
 } from "@mui/icons-material";
 
-const Flights = ({ submissionInfo }) => {
+const Flights = ({ submissionInfo, onSubmit }) => {
     const [activeFlightId, setActiveFlightId] = useState(false);
     const [flights, setFlights] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -24,8 +24,9 @@ const Flights = ({ submissionInfo }) => {
         
 
     useEffect(() => {
-        if (submissionInfo.destination) {
+        if (onSubmit = true) {
             setLoading(true); // Set loading to true when fetching starts
+            console.log("getting flights count");
             getFlights(submissionInfo.origin, submissionInfo.destination, "2024-05-02", 1, "2024-05-10", 800)
                 .then((flights) => {
                     // Sort flights by price in ascending order
@@ -43,7 +44,7 @@ const Flights = ({ submissionInfo }) => {
         } else {
             setFlights(null);
         }
-    }, [submissionInfo.destination]);
+    }, [onSubmit]);
 
 
     return (
