@@ -61,21 +61,31 @@ const Hotels = ({ submissionInfo, onSubmit }) => {
               try {
                 await delay(5000); // Wait for 1 second between requests
                 const pricingOffer = await getHotelPricing(stringHotelIds, 1);
+                console.log('pricingOffer: ', pricingOffer);
                 
                 // console.log(`Pricing info for hotel ${stringHotelIds}: `, pricingOffer);
                 // Set pricing info and add it to a list if needed
-                if (pricingOffer) {
+                console.log("pricingOffer.length", pricingOffer.length);
+                if (pricingOffer.length > 0) {
+                  console.log("if loop");
                   // Pricing offer array is not empty
-                  console.log(`Number of offers for hotel ${stringHotelIds}: ${pricingOffer.data.length}`);
+                  // console.log(`Number of offers for hotel ${stringHotelIds}: ${pricingOffer.data.length}`);
+                
                   // Set pricing info and add it to a list if needed
                   
 
                   //loop through hotel IDs(hotelIdsArray), and for each one that has a matching 
                   // hotel offer(pricingOffer.data and access the hotelId), add it and the offer to a array
                   const currentHotelIdArray = stringHotelIds.split(",");
+                  console.log("currentHotelIdArray",currentHotelIdArray);
                   currentHotelIdArray.map((hotelId)=>{ 
-                    pricingOffer.data.map((offer)=>{
+                    console.log('hotelId123: ', hotelId);
+                    console.log('pricingOffer123: ', pricingOffer);
+                    pricingOffer.map((offer)=>{
+        
+                      console.log("offer123", offer);
                       if(offer.hotel.hotelId == hotelId){
+                        // console.log("offer", offer);
                         setHotelAndPricingArray((prevHotels) => [...prevHotels, { hotelId,  offer}
                       ]);
                     }})
