@@ -13,7 +13,7 @@ import {
   ExpandMore as ExpandIcon,
 } from "@mui/icons-material";
 
-const Hotels = ({ submissionInfo }) => {
+const Hotels = ({ submissionInfo, onSubmit }) => {
   const [listOfResultingHotelIds, setListOfResultingHotelIds] = useState("");
   const [currentSelectedFlightPrice, setCurrentSelectedFlightPrice] = useState(0);
   const [activeHotelId, setActiveHotelId] = useState(false);
@@ -42,7 +42,7 @@ const Hotels = ({ submissionInfo }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (submissionInfo.destination) {
+      if (onSubmit = true) {
         try {
           const hotelData = await getHotels(submissionInfo.destination);
           // console.log('hotelData: ', hotelData);
@@ -103,7 +103,7 @@ const Hotels = ({ submissionInfo }) => {
 
 
     fetchData();
-  }, [submissionInfo.destination, submissionInfo.numOfTravelers]);
+  }, [onSubmit]);
 
 
   return (
