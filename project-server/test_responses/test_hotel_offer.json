@@ -4,55 +4,1051 @@
       "type": "hotel-offers",
       "hotel": {
         "type": "hotel",
-        "hotelId": "ALCHI347",
-        "chainCode": "AL",
-        "dupeId": "700157102",
-        "name": "Aloft Bolingbrook",
+        "hotelId": "WHCHI005",
+        "chainCode": "WH",
+        "dupeId": "700014176",
+        "name": "W Chicago Lakeshore",
         "cityCode": "CHI",
-        "latitude": 41.71604,
-        "longitude": -88.03906
+        "latitude": 41.89387,
+        "longitude": -87.61558
       },
       "available": true,
       "offers": [
         {
-          "id": "YYSAE7QAYS",
-          "checkInDate": "2023-11-21",
-          "checkOutDate": "2023-11-22",
+          "id": "XWLS9I46EU",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
           "rateCode": "S9R",
           "rateFamilyEstimated": { "code": "SRS", "type": "C" },
           "room": {
             "type": "XMI",
-            "typeEstimated": { "beds": 1, "bedType": "KING" },
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 1,
+              "bedType": "KING"
+            },
             "description": {
-              "text": "Marriott Senior Discount, includes\n1 King, Mini fridge, 285sqft/26sqm, Wireless\ninternet, complimentary, Coffee/tea maker,",
+              "text": "Marriott Senior Discount, includes\nWonderful, 1 King wall bed, 350sqft/32sqm,\nWireless internet, for a fee, 42in/107cm",
               "lang": "EN"
             }
           },
           "guests": { "adults": 2 },
           "price": {
             "currency": "USD",
-            "base": "105.00",
-            "total": "122.85",
+            "base": "152.00",
+            "total": "178.45",
             "variations": {
-              "average": { "base": "105.00" },
+              "average": { "base": "152.00" },
               "changes": [
                 {
-                  "startDate": "2023-11-21",
-                  "endDate": "2023-11-22",
-                  "base": "105.00"
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "152.00"
                 }
               ]
             }
           },
           "policies": {
             "cancellations": [
-              { "amount": "122.85", "deadline": "2023-11-19T23:59:00-06:00" }
+              { "amount": "178.45", "deadline": "2023-11-19T23:59:00-06:00" }
             ]
           },
-          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/YYSAE7QAYS"
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/XWLS9I46EU"
         }
       ],
-      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=ALCHI347&adults=2"
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=WHCHI005&adults=2"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "WHCHI509",
+        "chainCode": "WH",
+        "dupeId": "700017959",
+        "name": "W Chicago City Center",
+        "cityCode": "CHI",
+        "latitude": 41.87939,
+        "longitude": -87.63297
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "JO20CB7LE2",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "S9R",
+          "rateFamilyEstimated": { "code": "SRS", "type": "C" },
+          "room": {
+            "type": "XMI",
+            "typeEstimated": { "beds": 1, "bedType": "QUEEN" },
+            "description": {
+              "text": "Marriott Senior Discount, includes\nCozy, 1 Queen(s), 150sqft/14sqm-225sqft/20sqm,\nWireless internet, for a fee, Wired internet,",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "161.00",
+            "total": "189.02",
+            "variations": {
+              "average": { "base": "161.00" },
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "161.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "amount": "189.02", "deadline": "2023-11-19T23:59:00-06:00" }
+            ]
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/JO20CB7LE2"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=WHCHI509&adults=2"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "WICHI526",
+        "chainCode": "WI",
+        "dupeId": "700113248",
+        "name": "The Westin Chicago Lombard",
+        "cityCode": "CHI",
+        "latitude": 41.83979,
+        "longitude": -88.01097
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "G84GQKNA4G",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "S9R",
+          "rateFamilyEstimated": { "code": "SRS", "type": "C" },
+          "room": {
+            "type": "XMI",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 1,
+              "bedType": "KING"
+            },
+            "description": {
+              "text": "Marriott Senior Discount, includes\nTraditional King, 1 King, Mini fridge,\n350sqft/32sqm, Wireless internet, for a fee,",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "135.00",
+            "total": "149.85",
+            "variations": {
+              "average": { "base": "135.00" },
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "135.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "amount": "149.85", "deadline": "2023-11-20T23:59:00-06:00" }
+            ]
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/G84GQKNA4G"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=WICHI526&adults=2"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "WICHI760",
+        "chainCode": "WI",
+        "dupeId": "700113074",
+        "name": "The Westin Chicago Northwest",
+        "cityCode": "CHI",
+        "latitude": 41.987,
+        "longitude": -88.02129
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "CI3XURM5A6",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "S9R",
+          "rateFamilyEstimated": { "code": "SRS", "type": "C" },
+          "room": {
+            "type": "XMI",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 1,
+              "bedType": "KING"
+            },
+            "description": {
+              "text": "Marriott Senior Discount, includes\nKing Room, Sofa, work desk, 400 sqft, Westin\nHeavenly Bed, TV with streaming apps, coffee",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "109.65",
+            "total": "121.71",
+            "variations": {
+              "average": { "base": "109.65" },
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "109.65"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "amount": "121.71", "deadline": "2023-11-21T23:59:00-06:00" }
+            ]
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/CI3XURM5A6"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=WICHI760&adults=2"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "WICHICON",
+        "chainCode": "WI",
+        "dupeId": "700031488",
+        "name": "The Westin Michigan Avenue Chicago",
+        "cityCode": "CHI",
+        "latitude": 41.89947,
+        "longitude": -87.62413
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "JH999FHLAE",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "S9R",
+          "rateFamilyEstimated": { "code": "SRS", "type": "C" },
+          "room": {
+            "type": "XMI",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 1,
+              "bedType": "KING"
+            },
+            "description": {
+              "text": "Marriott Senior Discount, includes\nTraditional King Room, 1 King, Mini fridge,\n325sqft/29sqm, Wireless internet, for a fee,",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "143.00",
+            "total": "197.23",
+            "variations": {
+              "average": { "base": "143.00" },
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "143.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "amount": "167.89", "deadline": "2023-11-19T23:59:00-06:00" }
+            ]
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/JH999FHLAE"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=WICHICON&adults=2"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "WICHIRIV",
+        "chainCode": "WI",
+        "dupeId": "700050870",
+        "name": "The Westin Chicago River North",
+        "cityCode": "CHI",
+        "latitude": 41.88807,
+        "longitude": -87.62953
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "LIKUKRGD6N",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "S9R",
+          "rateFamilyEstimated": { "code": "SRS", "type": "C" },
+          "room": {
+            "type": "XMI",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 1,
+              "bedType": "KING"
+            },
+            "description": {
+              "text": "Marriott Senior Discount, includes\nTraditional Room, 1 King Bed, 1 King,\n398sqft/36sqm, Wireless internet, for a fee,",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "161.00",
+            "total": "218.36",
+            "variations": {
+              "average": { "base": "161.00" },
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "161.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "amount": "189.02", "deadline": "2023-11-19T23:59:00-06:00" }
+            ]
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/LIKUKRGD6N"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=WICHIRIV&adults=2"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "XVCHIBLS",
+        "chainCode": "XV",
+        "dupeId": "700034676",
+        "name": "SpringHill Suites by Marriott Chicago Bolingbrook",
+        "cityCode": "CHI",
+        "latitude": 41.6877,
+        "longitude": -88.07
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "LIDSME783T",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "S9R",
+          "rateFamilyEstimated": { "code": "SRS", "type": "C" },
+          "room": {
+            "type": "XMI",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 2,
+              "bedType": "DOUBLE"
+            },
+            "description": {
+              "text": "Marriott Senior Discount, 62 years and older valid ID required\n2 Doubles, Sofa bed, Mini fridge, Wireless\ninternet, for a fee, Wired internet, for a",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "127.00",
+            "total": "148.59",
+            "variations": {
+              "average": { "base": "127.00" },
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "127.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "amount": "148.59", "deadline": "2023-11-21T23:59:00-06:00" }
+            ]
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/LIDSME783T"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=XVCHIBLS&adults=2"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "XVCHICOS",
+        "chainCode": "XV",
+        "dupeId": "700069990",
+        "name": "SpringHill Suites by Marriott Chicago OHare",
+        "cityCode": "CHI",
+        "latitude": 41.9855,
+        "longitude": -87.8304
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "M7CSSSD9OQ",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "S9R",
+          "rateFamilyEstimated": { "code": "SRS", "type": "C" },
+          "room": {
+            "type": "XMI",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 1,
+              "bedType": "KING"
+            },
+            "description": {
+              "text": "Marriott Senior Discount, includes\n1 King, Sofa bed, Mini fridge, Microwave,\n375sqft/34sqm, Living/sitting area, Separate",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "103.20",
+            "total": "121.15",
+            "variations": {
+              "average": { "base": "103.20" },
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "103.20"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "amount": "121.15", "deadline": "2023-11-21T23:59:00-06:00" }
+            ]
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/M7CSSSD9OQ"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=XVCHICOS&adults=2"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "XVCHIEMS",
+        "chainCode": "XV",
+        "dupeId": "700110436",
+        "name": "SpringHill Suites by Marriott Chicago Elmhurst Oakbrook Area",
+        "cityCode": "CHI",
+        "latitude": 41.91803,
+        "longitude": -87.95141
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "EOIAPA7DAL",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "S9R",
+          "rateFamilyEstimated": { "code": "SRS", "type": "C" },
+          "room": {
+            "type": "XMI",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 2,
+              "bedType": "DOUBLE"
+            },
+            "description": {
+              "text": "Marriott Senior Discount, includes\n2 Doubles, Sofa bed, Mini fridge, Microwave,\n384sqft/35sqm, Living/sitting area, Dining",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "93.00",
+            "total": "102.30",
+            "variations": {
+              "average": { "base": "93.00" },
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "93.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "amount": "102.30", "deadline": "2023-11-20T23:59:00-06:00" }
+            ]
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/EOIAPA7DAL"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=XVCHIEMS&adults=2"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "XVCHINRS",
+        "chainCode": "XV",
+        "dupeId": "700110435",
+        "name": "SpringHill Suites by Marriott Chicago Downtown River North",
+        "cityCode": "CHI",
+        "latitude": 41.88956,
+        "longitude": -87.62957
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "541FJK0AHG",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "S9R",
+          "rateFamilyEstimated": { "code": "SRS", "type": "C" },
+          "room": {
+            "type": "XMI",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 1,
+              "bedType": "KING"
+            },
+            "description": {
+              "text": "Marriott Senior Discount, includes\n1 King, Sofa bed, Mini fridge, Microwave,\n330sqft/30sqm, Living/sitting area, Wireless",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "104.72",
+            "total": "122.94",
+            "variations": {
+              "average": { "base": "104.72" },
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "104.72"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "amount": "122.94", "deadline": "2023-11-21T23:59:00-06:00" }
+            ]
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/541FJK0AHG"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=XVCHINRS&adults=2"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "XVCHISHS",
+        "chainCode": "XV",
+        "dupeId": "700110437",
+        "name": "SpringHill Suites by Marriott Chicago Lincolnshire",
+        "cityCode": "CHI",
+        "latitude": 42.19502,
+        "longitude": -87.93272
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "SMF0917GOB",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "S9R",
+          "rateFamilyEstimated": { "code": "SRS", "type": "C" },
+          "room": {
+            "type": "XMI",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 1,
+              "bedType": "KING"
+            },
+            "description": {
+              "text": "Marriott Senior Discount, includes\n1 King, Sofa bed, Mini fridge, Microwave,\n350sqft/32sqm, Living/sitting area, Wireless",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "127.00",
+            "total": "140.97",
+            "variations": {
+              "average": { "base": "127.00" },
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "127.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "amount": "140.97", "deadline": "2023-11-20T23:59:00-06:00" }
+            ]
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/SMF0917GOB"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=XVCHISHS&adults=2"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "XVCHIWGS",
+        "chainCode": "XV",
+        "dupeId": "700110438",
+        "name": "SpringHill Suites by Marriott Chicago Waukegan Gurnee",
+        "cityCode": "CHI",
+        "latitude": 42.34293,
+        "longitude": -87.89644
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "VHRCT9S5UK",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "S9R",
+          "rateFamilyEstimated": { "code": "SRS", "type": "C" },
+          "room": {
+            "type": "XMI",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 2,
+              "bedType": "QUEEN"
+            },
+            "description": {
+              "text": "Marriott Senior Discount, includes\n2 Queen(s), Sofa bed, Mini fridge, Microwave,\n453sqft/41sqm, Living/sitting area, Wireless",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "127.00",
+            "total": "142.24",
+            "variations": {
+              "average": { "base": "127.00" },
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "127.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "amount": "142.24", "deadline": "2023-11-20T23:59:00-06:00" }
+            ]
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/VHRCT9S5UK"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=XVCHIWGS&adults=2"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "XVCHIWRS",
+        "chainCode": "XV",
+        "dupeId": "700110430",
+        "name": "SpringHill Suites by Marriott Chicago Naperville Warrenville",
+        "cityCode": "CHI",
+        "latitude": 41.80299,
+        "longitude": -88.1649
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "5OLWHBXSCB",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "S9R",
+          "rateFamilyEstimated": { "code": "SRS", "type": "C" },
+          "room": {
+            "type": "XMI",
+            "typeEstimated": {
+              "category": "STANDARD_ROOM",
+              "beds": 2,
+              "bedType": "DOUBLE"
+            },
+            "description": {
+              "text": "Marriott Senior Discount, includes\n2 Doubles, Sofa bed, Mini fridge, Microwave,\n400sqft/36sqm, Living/sitting area, Separate",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "120.60",
+            "total": "133.87",
+            "variations": {
+              "average": { "base": "120.60" },
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "120.60"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "amount": "133.87", "deadline": "2023-11-20T23:59:00-06:00" }
+            ]
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/5OLWHBXSCB"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=XVCHIWRS&adults=2"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "YOCHI162",
+        "chainCode": "YO",
+        "dupeId": "700103271",
+        "name": "CANDLEWOOD SUITES",
+        "cityCode": "CHI",
+        "latitude": 41.52564,
+        "longitude": -87.3204
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "H58UUZH4M6",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "57J",
+          "rateFamilyEstimated": { "code": "BAR", "type": "P" },
+          "boardType": "ROOM_ONLY",
+          "room": {
+            "type": "*1Q",
+            "typeEstimated": {
+              "category": "SUITE",
+              "beds": 1,
+              "bedType": "QUEEN"
+            },
+            "description": {
+              "text": "BEST FLEXIBLE RATE\n1 Queen Studio Suite 325 SqFt Suite Studio with\nFull Kitchen",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "99.99",
+            "total": "111.99",
+            "taxes": [
+              {
+                "code": "MISCELLANEOUS",
+                "pricingFrequency": "PER_NIGHT",
+                "pricingMode": "PER_PRODUCT",
+                "percentage": "12.00",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": { "base": "99.99" },
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "99.99"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "numberOfNights": 1, "deadline": "2023-11-22T11:30:00-06:00" }
+            ],
+            "guarantee": {
+              "acceptedPayments": {
+                "creditCards": ["AX", "VI", "CA", "DC", "CB", "JC", "DS"],
+                "methods": ["CREDIT_CARD"]
+              }
+            },
+            "paymentType": "guarantee"
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/H58UUZH4M6"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=YOCHI162&adults=2"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "YZCHI37F",
+        "chainCode": "YZ",
+        "dupeId": "700070040",
+        "name": "STAYBRIDGE SUITES GLENVIEW",
+        "cityCode": "CHI",
+        "latitude": 42.10448,
+        "longitude": -87.82061
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "4LERNE2FLE",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "57J",
+          "rateFamilyEstimated": { "code": "BAR", "type": "P" },
+          "boardType": "BREAKFAST",
+          "room": {
+            "type": "*1Q",
+            "typeEstimated": {
+              "category": "SUITE",
+              "beds": 1,
+              "bedType": "QUEEN"
+            },
+            "description": {
+              "text": "BEST FLEXIBLE RATE\n1 Queen Studio Suite 345 SqFt Suite with Full\nKitchen and Complimentary Breakfast",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "144.99",
+            "total": "163.84",
+            "taxes": [
+              {
+                "code": "MISCELLANEOUS",
+                "pricingFrequency": "PER_NIGHT",
+                "pricingMode": "PER_PRODUCT",
+                "percentage": "13.00",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": { "base": "144.99" },
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "144.99"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "numberOfNights": 1, "deadline": "2023-11-22T11:30:00-06:00" }
+            ],
+            "guarantee": {
+              "acceptedPayments": {
+                "creditCards": ["AX", "VI", "CA", "DC", "CB", "JC", "DS"],
+                "methods": ["CREDIT_CARD"]
+              }
+            },
+            "paymentType": "guarantee"
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/4LERNE2FLE"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=YZCHI37F&adults=2"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "YZCHI892",
+        "chainCode": "YZ",
+        "dupeId": "700217795",
+        "name": "StayBridge Suites Schererville",
+        "cityCode": "CHI",
+        "latitude": 40.55089,
+        "longitude": -89.63128
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "JIKWJ5AB6N",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "57J",
+          "rateFamilyEstimated": { "code": "BAR", "type": "P" },
+          "boardType": "BREAKFAST",
+          "room": {
+            "type": "*1K",
+            "typeEstimated": {
+              "category": "SUITE",
+              "beds": 1,
+              "bedType": "KING"
+            },
+            "description": {
+              "text": "BEST FLEXIBLE RATE\n1 King Bed Studio Suite Suite with Full Kitchen\nSofa Bed",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "155.00",
+            "total": "173.60",
+            "taxes": [
+              {
+                "code": "MISCELLANEOUS",
+                "pricingFrequency": "PER_NIGHT",
+                "pricingMode": "PER_PRODUCT",
+                "percentage": "12.00",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": { "base": "155.00" },
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "155.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "numberOfNights": 1, "deadline": "2023-11-22T11:30:00-06:00" }
+            ],
+            "guarantee": {
+              "acceptedPayments": {
+                "creditCards": ["AX", "VI", "CA", "DC", "CB", "JC", "DS"],
+                "methods": ["CREDIT_CARD"]
+              }
+            },
+            "paymentType": "guarantee"
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/JIKWJ5AB6N"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=YZCHI892&adults=2"
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "YZCHIEFA",
+        "chainCode": "YZ",
+        "dupeId": "700070024",
+        "name": "STAYBRIDGE SUITES OAKBROOK TER",
+        "cityCode": "CHI",
+        "latitude": 41.84908,
+        "longitude": -87.98489
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "16HVKZRQ5W",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "57J",
+          "rateFamilyEstimated": { "code": "BAR", "type": "P" },
+          "boardType": "BREAKFAST",
+          "room": {
+            "type": "*1Q",
+            "typeEstimated": {
+              "category": "SUITE",
+              "beds": 1,
+              "bedType": "QUEEN"
+            },
+            "description": {
+              "text": "BEST FLEXIBLE RATE\n1 Queen Studio Suite 350 Sq Ft Studio with Full\nKitchen Sofa Bed",
+              "lang": "EN"
+            }
+          },
+          "guests": { "adults": 2 },
+          "price": {
+            "currency": "USD",
+            "base": "134.00",
+            "total": "150.08",
+            "taxes": [
+              {
+                "code": "MISCELLANEOUS",
+                "pricingFrequency": "PER_NIGHT",
+                "pricingMode": "PER_PRODUCT",
+                "percentage": "12.00",
+                "included": false
+              }
+            ],
+            "variations": {
+              "average": { "base": "134.00" },
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "134.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "cancellations": [
+              { "numberOfNights": 1, "deadline": "2023-11-22T11:30:00-06:00" }
+            ],
+            "guarantee": {
+              "acceptedPayments": {
+                "creditCards": ["AX", "VI", "CA", "DC", "CB", "JC", "DS"],
+                "methods": ["CREDIT_CARD"]
+              }
+            },
+            "paymentType": "guarantee"
+          },
+          "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/16HVKZRQ5W"
+        }
+      ],
+      "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=YZCHIEFA&adults=2"
     }
   ]
 }

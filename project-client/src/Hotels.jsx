@@ -27,11 +27,16 @@ const Hotels = ({ submissionInfo }) => {
 
   // TODO: MAKE INTO A STRING NOT AN ARRAY
   const chunkArray = (array, chunkSize) => {
-    const result = [];
+    var finalArray = [];
     for (let i = 0; i < array.length; i += chunkSize) {
-      result.push(array.slice(i, i + chunkSize));
+      var result = "";
+      result += array.slice(i, i + chunkSize).join(',');
+      finalArray.push(result);
+      // result.push(array.slice(i, i + chunkSize));
+      console.log("result: " + result);
     }
-    return result;
+    console.log("finalArray: " + finalArray);
+    return finalArray;
   };
   
 
@@ -52,22 +57,36 @@ const Hotels = ({ submissionInfo }) => {
           // for (const chunk of chunkedHotelIds) {
 
 
-            const pricingPromises = chunkedHotelIds.map(async (hotelId) => {
+            const pricingPromises = chunkedHotelIds.map(async (stringHotelIds) => {
               try {
                 await delay(5000); // Wait for 1 second between requests
-                const pricingOffer = await getHotelPricing(hotelId, 1);
+                const pricingOffer = await getHotelPricing(stringHotelIds, 1);
                 
-                console.log(`Pricing info for hotel ${hotelId}: `, pricingOffer);
+                // console.log(`Pricing info for hotel ${stringHotelIds}: `, pricingOffer);
                 // Set pricing info and add it to a list if needed
                 if (pricingOffer) {
                   // Pricing offer array is not empty
-                  console.log(`Number of offers for hotel ${hotelId}: ${pricingOffer.length}`);
+                  console.log(`Number of offers for hotel ${stringHotelIds}: ${pricingOffer.data.length}`);
                   // Set pricing info and add it to a list if needed
-                  setHotelAndPricingArray((prevHotels) => [...prevHotels, { hotelId }]);
-                  console.log("hotelprinsgugfdgsyuhgx: ", hotelAndPricingArray);
+                  
+
+                  //loop through hotel IDs(hotelIdsArray), and for each one that has a matching 
+                  // hotel offer(pricingOffer.data and access the hotelId), add it and the offer to a array
+                  const currentHotelIdArray = stringHotelIds.split(",");
+                  currentHotelIdArray.map((hotelId)=>{ 
+                    pricingOffer.data.map((offer)=>{
+                      if(offer.hotel.hotelId == hotelId){
+                        setHotelAndPricingArray((prevHotels) => [...prevHotels, { hotelId,  offer}
+                      ]);
+                    }})
+                    
+                  })
+
+                  // WORKING!! YAY!
+                  // console.log("hotelprinsgugfdgsyuhgx: ", hotelAndPricingArray);
                 } 
               } catch (error) {
-                console.error(`Error fetching hotel pricing for ${hotelId}:`, error);
+                console.error(`Error fetching hotel pricing for ${stringHotelIds}:`, error);
               }
             });
 
@@ -91,9 +110,14 @@ const Hotels = ({ submissionInfo }) => {
     <div>
       <h1>Hotels</h1>
       {hotelAndPricingArray &&
-        hotelAndPricingArray.filter((hotel) => hotel.price <= (budget - currentSelectedFlightPrice)).map((hotel) => {
-          const { name, hotelId, media } = hotel;
-          const image = media ? media[0].uri : "";
+        hotelAndPricingArray.map((hotelInfoPair) => {
+          console.log("hotelprinsgugfdgsyuhgx: ", hotelAndPricingArray);
+        {/* hotelAndPricingArray.filter((hotel) => hotel.price <= (budget - currentSelectedFlightPrice)).map((hotel) => { */}
+          const name = hotelInfoPair.offer.hotel.name;
+          const hotelId = hotelInfoPair.hotelId;
+          const price = hotelInfoPair.offer.offers.at(0).price.total;
+          {/* const { name, hotelId, media } = hotelInfoPair; */}
+          {/* const image = media ? media[0].uri : ""; */}
           const active = activeHotelId === hotelId;
 
           return (
@@ -105,16 +129,16 @@ const Hotels = ({ submissionInfo }) => {
               <AccordionSummary expandIcon={<ExpandIcon />}>
                 <div>
             
-                  <div>
+                  {/* <div>
                     {image ? <img src={image} alt="HOTEL" /> : <HotelIcon />}
-                  </div>
+                  </div> */}
                   <div>
                     <Typography>{name}</Typography>
                     <Typography color="textSecondary"></Typography>
                   </div>
                 </div>
               </AccordionSummary>
-              <AccordionDetails>Display offers</AccordionDetails>
+              <AccordionDetails>Total = ${price}</AccordionDetails>
             </Accordion>
           );
         })}

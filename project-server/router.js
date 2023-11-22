@@ -86,28 +86,34 @@ router.get(`/${API}/hotel-offers`, async (req, res) => {
   //   adults,
   // });
   // console.log("response: ", response);
-  try {
-    const response = await amadeus.shopping.hotelOffersSearch.get({
-      hotelIds,
-      adults,
-    });
-    console.log("response: ", response);
 
-    const json = JSON.parse(response.body);
+  if(TEST_MODE == 1) {
+    console.log("in testing modee - hotel offers");
+    await res.json(JSON.parse(fake_hotel_offer_response));
+  } else {  
+    try {
+      const response = await amadeus.shopping.hotelOffersSearch.get({
+        hotelIds,
+        adults,
+      });
+      console.log("response: ", response);
 
-    if (json && Array.isArray(json.data)) {
-      res.json(json.data);
-    } else {
+      const json = JSON.parse(response.body);
+
+      if (json && Array.isArray(json.data)) {
+        res.json(json.data);
+      } else {
+        res
+          .status(500)
+          .json({ error: "Invalid response format from Amadeus API." });
+      }
+    } catch (err) {
+      console.error("Error fetching hotel offers:", err);
       res
         .status(500)
-        .json({ error: "Invalid response format from Amadeus API." });
+        .json({ error: "An error occurred while processing the request." });
     }
-  } catch (err) {
-    console.error("Error fetching hotel offers:", err);
-    res
-      .status(500)
-      .json({ error: "An error occurred while processing the request." });
-  }
+}
 });
 
 module.exports = router;
@@ -119,7 +125,7 @@ module.exports = router;
 const create_testing_data = async () => {
 
   const response = await amadeus.shopping.hotelOffersSearch.get({
-    hotelIds: "ALCHI347",
+    hotelIds: "UZCHIEE1,UZCHI210,UZCHI123,UZCHI274,UZCHIMG1,WACHI646,WHCHI509,WHCHI005,WICHIRIV,WICHICON,WICHI760,WICHI526,WICHI724,WKCHIEBB,WVCHI372,WVCHI001,WWCHI100,WYCHIBGH,XKCHIAM1,XLCHIGCH,XVCHIBLS,XVCHIBUS,XVCHINRS,XVCHICOS,XVCHIEMS,XVCHISHS,XVCHIWRS,XVCHIWGS,YOCHI162,YPCHIWRH,YXCHI405,YXCHID8E,YXCHIWHI,YXCHIHRH,YXCHICIM,YXCHIDWP,YZCHI0AD,YZCHI37F,YZCHIEFA,YZCHI892",
     adults: 2,
   });
 
