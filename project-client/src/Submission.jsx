@@ -9,7 +9,6 @@ function SubmissionForm({ submissionInfo, setSubmissionInfo,onSubmit, setOnSubmi
   const navigate = useNavigate();
   const [cityCode, setCityCode] = useState(null);
   const [destinationCode, setDestinationCode] = useState(null);
-  // const [onSubmit,setOnSubmit ] = useState(false);
   // Callback function to update submissionInfo.origin
   const updateOrigin = (newOrigin) => {
     setSubmissionInfo({
@@ -36,15 +35,22 @@ function SubmissionForm({ submissionInfo, setSubmissionInfo,onSubmit, setOnSubmi
   };
 
   const submitForm = (event) => {
-    setOnSubmit(true);
+    
     event.preventDefault();
+    const form = event.target;
+    console.log('Form:', form);
+    if (!form.checkValidity()) {
+      alert('Please fill out all required fields.')
+      return;
+    }
+    setOnSubmit(true);
     navigate("/vacation-planner");
   };
 
   return (
     <div className="SubmissionForm">
       <h1>Submission Form</h1>
-      <form>
+      <form noValidate onSubmit={submitForm}>
         <Search setCityCode={setCityCode} updateOrigin={updateOrigin} />
         <SearchDestination
           setDestinationCode={setDestinationCode}
@@ -59,6 +65,7 @@ function SubmissionForm({ submissionInfo, setSubmissionInfo,onSubmit, setOnSubmi
             type="number"
             value={submissionInfo.budget}
             onChange={handleInput}
+            required
           />
         </label>
         <br />
@@ -70,6 +77,7 @@ function SubmissionForm({ submissionInfo, setSubmissionInfo,onSubmit, setOnSubmi
             value={submissionInfo.checkInDate}
             placeholder="MM-DD-YYYY"
             onChange={handleInput}
+            required
           />
         </label>
         <label>
@@ -80,6 +88,7 @@ function SubmissionForm({ submissionInfo, setSubmissionInfo,onSubmit, setOnSubmi
             value={submissionInfo.checkOutDate}
             placeholder="MM-DD-YYYY"
             onChange={handleInput}
+            required
           />
         </label>
         <br />
@@ -90,10 +99,11 @@ function SubmissionForm({ submissionInfo, setSubmissionInfo,onSubmit, setOnSubmi
             type="number"
             value={submissionInfo.numOfTravelers}
             onChange={handleInput}
+            required
           />
         </label>
         <br />
-        <button className="submit" onClick={submitForm}>
+        <button className="submit" >
           Submit
         </button>
       </form>

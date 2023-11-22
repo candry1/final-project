@@ -65,7 +65,7 @@ const Hotels = ({ submissionInfo, onSubmit }) => {
                 await delay(5000); // Wait for 1 second between requests
                 const pricingOffer = await getHotelPricing(stringHotelIds, submissionInfo.numOfTravelers);
                 console.log('pricingOffer count: ', pricingOffer);
-                
+             
                 // console.log(`Pricing info for hotel ${stringHotelIds}: `, pricingOffer);
                 // Set pricing info and add it to a list if needed
                 if (pricingOffer.length > 0) {
@@ -79,19 +79,28 @@ const Hotels = ({ submissionInfo, onSubmit }) => {
                   // hotel offer(pricingOffer.data and access the hotelId), add it and the offer to a array
                   const currentHotelIdArray = stringHotelIds.split(",");
                   // console.log("currentHotelIdArray",currentHotelIdArray);
-                  currentHotelIdArray.map((hotelId)=>{ 
-                    pricingOffer.map((offer)=>{
-                      if(offer.hotel.hotelId == hotelId){
-                        // console.log("offer", offer);
-                        console.log("the hotel id", hotelId);
-                        setHotelAndPricingArray((prevHotels) => [...prevHotels, { hotelId,  offer}
-                      ]);
-                    }})
+                  // currentHotelIdArray.map((hotelId)=>{ 
+                  //   pricingOffer.map((offer)=>{
+                  //     if(offer.hotel.hotelId == hotelId){
+                  //       // console.log("offer", offer);
+                  //       console.log("the hotel id", hotelId);
+                  //       setHotelAndPricingArray((prevHotels) => [...prevHotels, { hotelId,  offer}
+                  //     ]);
+                  //   }})
                     
-                  })
-
+                  // })
+                  console.log('pricingOffer: ', pricingOffer);
+                    pricingOffer.map((offer)=>{
+                        console.log("offer hotel id123", offer.hotel.hotelId);
+        
+                        // console.log("offer", offer);
+                        // console.log("the hotel id", hotelId);
+                        setHotelAndPricingArray((prevHotels) => [...prevHotels, {offer}
+                      ]);
+                    })
+                 
                   // WORKING!! YAY!
-                  // console.log("hotelprinsgugfdgsyuhgx: ", hotelAndPricingArray);
+                  console.log("hotelAndPricingArray123: ", hotelAndPricingArray);
                 } 
                 setLoading(false);
               } catch (error) {
@@ -129,7 +138,7 @@ const Hotels = ({ submissionInfo, onSubmit }) => {
           
         {/* hotelAndPricingArray.filter((hotel) => hotel.price <= (budget - currentSelectedFlightPrice)).map((hotel) => { */}
           const name = hotelInfoPair.offer.hotel.name;
-          const hotelId = hotelInfoPair.hotelId;
+          const hotelId = hotelInfoPair.offer.hotel.hotelId;
           const price = hotelInfoPair.offer.offers.at(0).price.total;
           const active = activeHotelId === hotelId;
 
