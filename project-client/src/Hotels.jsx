@@ -116,8 +116,6 @@ const Hotels = ({ submissionInfo }) => {
           const name = hotelInfoPair.offer.hotel.name;
           const hotelId = hotelInfoPair.hotelId;
           const price = hotelInfoPair.offer.offers.at(0).price.total;
-          {/* const { name, hotelId, media } = hotelInfoPair; */}
-          {/* const image = media ? media[0].uri : ""; */}
           const active = activeHotelId === hotelId;
 
           return (
@@ -138,7 +136,11 @@ const Hotels = ({ submissionInfo }) => {
                   </div>
                 </div>
               </AccordionSummary>
-              <AccordionDetails>Total = ${price}</AccordionDetails>
+              <AccordionDetails>
+              Check-In: {submissionInfo.checkInDate}
+              Check-In: {submissionInfo.checkOutDate}
+              Total: ${price}
+              </AccordionDetails>
             </Accordion>
           );
         })}
