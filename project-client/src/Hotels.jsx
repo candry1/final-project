@@ -72,7 +72,6 @@ const Hotels = ({ submissionInfo, onSubmit, selectedFlight, selectedHotel, setSe
     setHotels([])
     const fetchData = async () => {
       if (onSubmit === true && isMounted.current) {
-        console.log("hi!");
         setLoading(true); // Set loading to true when fetching starts
         try {
           const hotelData = await getHotels(submissionInfo.destination);
@@ -162,9 +161,6 @@ useEffect(() => {
     <div>
       <h1>Hotels</h1>
       {loading && <p>Loading Your Hotels... <CircularProgress/></p> } {}
-      {!loading && hotelAndPricingArray.length === 0 && (
-        <p>No hotels available for your search.123</p>
-      )}
       {!loading && hotels !== null && hotels.length === 0 && hotelAndPricingArray.length === 0 && (
         <p>No hotels available for your search.</p>
       )}

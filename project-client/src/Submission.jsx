@@ -84,12 +84,12 @@ function SubmissionForm({ submissionInfo, setSubmissionInfo,onSubmit, setOnSubmi
   //   navigate("/vacation-planner");
   // };
 
-  useEffect(() => {
-    if (onSubmit) {
-      // Navigate to /vacation-planner when onSubmit is true
-      navigate("/vacation-planner");
-    }
-  }, [onSubmit, navigate]);
+  // useEffect(() => {
+  //   if (onSubmit) {
+  //     // Navigate to /vacation-planner when onSubmit is true
+  //     navigate("/vacation-planner");
+  //   }
+  // }, [onSubmit, navigate]);
 
   const submitForm = (event) => {
     event.preventDefault();
@@ -99,6 +99,9 @@ function SubmissionForm({ submissionInfo, setSubmissionInfo,onSubmit, setOnSubmi
       return;
     }
     setOnSubmit(true);
+    navigate("/vacation-planner");
+    
+    // setOnSubmit(false);
   };
 
   return (
