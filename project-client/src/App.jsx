@@ -4,6 +4,7 @@ import SubmissionForm from "./Submission";
 import VacationPlanner from "./VacationPlanner";
 import FinalVacationPlan from "./FinalVacationPlan";
 import { useState } from "react";
+import Navbar from "./Navbar";
 
 function App() {
   const [onSubmit,setOnSubmit ] = useState(false);
@@ -24,6 +25,7 @@ function App() {
     <>
       <div className="App">
         <BrowserRouter>
+        <Navbar /> 
           <Routes>
             <Route
               path="/"
