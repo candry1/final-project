@@ -62,6 +62,7 @@ router.get(`/${API}/hotels`, async (req, res) => {
       const response = await amadeus.referenceData.locations.hotels.byCity.get({
         cityCode,
       });
+      console.log("response: ", response);
       await res.json(JSON.parse(response.body));
     }
   } catch (err) {
