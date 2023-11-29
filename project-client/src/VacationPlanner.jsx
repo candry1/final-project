@@ -3,20 +3,25 @@ import "./VacationPlanner.css";
 import { Flights } from "./Flights.jsx";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types"; // Import PropTypes
+import { useNavigate } from "react-router-dom";
 
-const VacationPlanner = ({ submissionInfo, onSubmit}) => {
-  const [selectedHotel, setSelectedHotel] = useState(0);
-  const [selectedFlight, setSelectedFlight] = useState(0);
+const VacationPlanner = ({ submissionInfo, onSubmit, selectedHotel, setSelectedHotel, selectedFlight, setSelectedFlight, selectedHotelInfo, setSelectedHotelInfo,
+  selectedFlightInfo, setSelectedFlightInfo}) => {
+  // const [selectedHotel, setSelectedHotel] = useState(0);
+  // const [selectedFlight, setSelectedFlight] = useState(0);
   const [selectedFlightPrice, setSelectedFlightPrice] = useState(0);
   const [onChooseHotel,setOnChooseHotel ] = useState(false);
   const [onChooseFlight,setOnChooseFlight ] = useState(false);
   const isButtonVisible = onChooseHotel && onChooseFlight;
 
+  const navigate = useNavigate();
+
   const handleButtonClick = () => {
-    // Perform any action when the button is clicked
-    // You can call onSubmit or any other function here
-    // onSubmit(selectedHotel, selectedFlight);
+    //  pass data to the next page using the state object
+    navigate("/final-vacation-plan", { state: { selectedHotel, selectedFlight, submissionInfo } });
   };
+
+
   return (
     <div>
       <h2>Vacation Planner</h2>
@@ -33,10 +38,13 @@ const VacationPlanner = ({ submissionInfo, onSubmit}) => {
         selectedFlight={selectedFlight}
         onChooseHotel={onChooseHotel}
         setOnChooseHotel={setOnChooseHotel}
+        selectedHotelInfo={selectedHotelInfo}
+        setSelectedHotelInfo={setSelectedHotelInfo}
         />
         <Flights submissionInfo={submissionInfo} 
         onSubmit={onSubmit} selectedHotel={selectedHotel} selectedFlight={selectedFlight} setSelectedFlight={setSelectedFlight}
-        onChooseHotel={onChooseHotel} setOnChooseFlight={setOnChooseFlight} setSelectedFlightPrice={setSelectedFlightPrice} selectedFlightPrice={selectedFlightPrice}/>
+        onChooseHotel={onChooseHotel} setOnChooseFlight={setOnChooseFlight} setSelectedFlightPrice={setSelectedFlightPrice} 
+        selectedFlightPrice={selectedFlightPrice} selectedFlightInfo={selectedFlightInfo} setSelectedFlightInfo={setSelectedFlightInfo} />
       </div>
       {isButtonVisible && (
         <div>
