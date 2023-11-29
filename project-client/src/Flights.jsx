@@ -14,7 +14,8 @@ import {
   ExpandMore as ExpandIcon,
 } from "@mui/icons-material";
 
-const Flights = ({ submissionInfo, onSubmit, selectedFlight, setSelectedFlight, selectedHotel, onChooseHotel,setOnChooseFlight, setSelectedFlightPrice, selectedFlightPrice}) => {
+const Flights = ({ submissionInfo, onSubmit, selectedFlight, setSelectedFlight, selectedHotel, 
+  onChooseHotel,setOnChooseFlight, setSelectedFlightPrice, selectedFlightPrice, selectedFlightInfo, setSelectedFlightInfo}) => {
     const [activeFlightId, setActiveFlightId] = useState(false);
     const [flights, setFlights] = useState([]);
     const [loading, setLoading] = useState();
@@ -75,6 +76,8 @@ const Flights = ({ submissionInfo, onSubmit, selectedFlight, setSelectedFlight, 
                 setOnChooseFlight={setOnChooseFlight}
                 setSelectedFlightPrice={setSelectedFlightPrice}
                 selectedFlightPrice={selectedFlightPrice}
+                selectedFlightInfo={selectedFlightInfo}
+                setSelectedFlightInfo={setSelectedFlightInfo}
               />
             ))}
           </div>

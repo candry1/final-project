@@ -15,7 +15,7 @@ import {
   ExpandMore as ExpandIcon,
 } from "@mui/icons-material";
 
-const Hotels = ({ submissionInfo, onSubmit, selectedFlight, selectedHotel, setSelectedHotel, onChooseHotel, setOnChooseHotel }) => {
+const Hotels = ({ submissionInfo, onSubmit, selectedFlight, selectedHotel, setSelectedHotel, onChooseHotel, setOnChooseHotel,  selectedHotelInfo, setSelectedHotelInfo }) => {
   const [loading, setLoading] = useState(true);
   const [selectedHotelId, setSelectedHotelId] = useState(null);
   const [listOfResultingHotelIds, setListOfResultingHotelIds] = useState("");
@@ -197,11 +197,15 @@ useEffect(() => {
           // let pricePerNight = hotelInfoPair.offer.offers.at(0).price.variations;
           // console.log('name: ', hotelId,'pricePerNight: ', pricePerNight);
           const budgetOfVacation = parseFloat(submissionInfo.budget)
-          const chooseHotel = (hotelId) => {
+          const chooseHotel = (hotelId, hotelInfoPair) => {
             // Update selectedHotel when the button is clicked
             setSelectedHotelId(hotelId);
             setSelectedHotel(price);
             setOnChooseHotel(true);
+
+            setSelectedHotelInfo(hotelInfoPair.offer);
+            console.log('hotelInfoPair: ', hotelInfoPair);
+            console.log("selectedHotelInfo", selectedHotelInfo);
             console.log('selectedHotelId: ', selectedHotelId);
             console.log("selectedHotel", selectedHotel);
           };
@@ -242,7 +246,7 @@ useEffect(() => {
                 <Typography>Room Type: {roomType}</Typography>
                 <Typography>Number of Adults: {numberOfAdults}</Typography>
                 <button 
-              onClick={() => chooseHotel(hotelId)}
+              onClick={() => chooseHotel(hotelId, hotelInfoPair)}
               className={selectedHotelId === hotelId ? "selected-button" : ""}
             >
               Choose this hotel

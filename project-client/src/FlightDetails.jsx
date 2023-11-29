@@ -13,7 +13,8 @@ import {
   ExpandMore as ExpandIcon,
 } from "@mui/icons-material";
 
-const FlightDetails = ({ flight, activeFlightId, onChange, setSelectedFlight, selectedFlight, setOnChooseFlight, setSelectedFlightPrice,selectedFlightPrice}) => {
+const FlightDetails = ({ flight, activeFlightId, onChange, setSelectedFlight, selectedFlight,
+   setOnChooseFlight, setSelectedFlightPrice,selectedFlightPrice, setSelectedFlightInfo, selectedFlightInfo}) => {
 
   const [selectedOutboundFlightId, setSelectedOutboundFlightId] = useState(null);
   const [selectedReturnFlightId, setSelectedReturnFlightId] = useState(null);
@@ -63,7 +64,7 @@ const FlightDetails = ({ flight, activeFlightId, onChange, setSelectedFlight, se
           // Format date and time
           const formattedDepartureDateTime = new Date(departureDateTime).toLocaleString();
           const formattedArrivalDateTime = new Date(arrivalDateTime).toLocaleString()
-          const chooseFlight = (id) => {
+          const chooseFlight = (id, flight) => {
             if (flight.itineraries.length === 1) {
               // Only outbound flight, set the outbound flight id
               setSelectedOutboundFlightId(id);
@@ -76,6 +77,11 @@ const FlightDetails = ({ flight, activeFlightId, onChange, setSelectedFlight, se
               setSelectedFlightId(id);
             }
         
+            setSelectedFlightInfo(flight);
+            console.log('flight90: ', flight);
+
+            console.log('selectedFlightInfo: ', selectedFlightInfo);
+
             setSelectedFlight(id);
             setOnChooseFlight(true);
             setSelectedFlightPrice(price?.total)
@@ -155,7 +161,7 @@ const FlightDetails = ({ flight, activeFlightId, onChange, setSelectedFlight, se
                   ))}
               </div>
               <button 
-               onClick={() => chooseFlight(id)}
+               onClick={() => chooseFlight(id, flight)}
                className={selectedFlight === id ? "selected-button" : ""}
             >
               Choose this flight
