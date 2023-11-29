@@ -58,27 +58,36 @@ const getHotels = async (cityCode) => {
       return json.data;
     }
   } catch (error) {
-    console.error(error);
+    if (error.response && error.response.status === 429) {
+      console.warn('Rate limit exceeded. Retrying in 60 seconds...');
+      await new Promise(resolve => setTimeout(resolve, 60000)); // Wait for 60 seconds
+      return getHotelPricing(hotelIds, adults); // Retry the request
+    } else {
+      const errorMessage =
+      
+      error.response?.data?.description?.[0]?.title || 'An error occurred while fetching hotel pricing';
+      console.log('errorMessage123: ', errorMessage);
+      throw new Error(errorMessage);
+    }
   }
   return [];
 };
 
-const getHotelPricing = async (hotelIds, adults) => {
-  // console.log('adults: ', adults);
-  // console.log('hotelIds: ', hotelIds);
-  // console.log("hi");
+const getHotelPricing = async (hotelIds, adults, checkInDate, checkOutDate) => {
+  console.log('checkOutDate: ', checkOutDate);
+  console.log('checkInDate: ', checkInDate);
   try {
     const response = await axios.get(`/api/hotel-offers`, {
       params: {
         hotelIds: hotelIds,
         adults: adults,
+        checkInDate: checkInDate,
+        checkOutDate: checkOutDate,
       },
     });
-    // console.log('Response Status:', response.status);
-    // console.log('Response Data:', response.data);
-    // console.log("gethotels");
-    // console.log('response pricing : ', response);
+    
     const json = response.data;
+    console.log('json: ', json);
 
     if (json /*&& Array.isArray(json.data)*/) {
       console.log("pricing json: ", json);
@@ -90,14 +99,23 @@ const getHotelPricing = async (hotelIds, adults) => {
       await new Promise(resolve => setTimeout(resolve, 60000)); // Wait for 60 seconds
       return getHotelPricing(hotelIds, adults); // Retry the request
     } else {
-      console.error('Error fetching hotel pricing:', error);
-      throw error; // Re-throw other errors
+      console.log(error, "error");
+      const errorCode = error.response?.data?.description?.[0]?.code;
+      const errorTitle = error.response?.data?.description?.[0]?.title;
+      const errorDetail = error.response?.data?.description?.[0]?.detail;
+      const errorMessage1 = `Error in hotel offers search: ${errorCode} - ${errorTitle}. ${errorDetail || ''}`;
+      console.log('errorMessage1: ', errorMessage1);
+      const errorMessage =
+      error.response?.data?.description?.[0]?.title || 'An error occurred while fetching hotel pricing';
+      console.log('errorMessage: ', errorMessage);
+      throw new Error(errorMessage);
     }
   }
   return [];
 };
 
 const getFlights = async (originLocationCode, destinationLocationCode, departureDate, adults, returnDate, maxPrice ) => {
+  console.log('originLocationCode, destinationLocationCode, departureDate, adults, returnDate, maxPrice : ', originLocationCode, destinationLocationCode, departureDate, adults, returnDate, maxPrice );
   try {
     const response = await axios.get(`/api/flight-offers`, {
       params: {
@@ -111,20 +129,13 @@ const getFlights = async (originLocationCode, destinationLocationCode, departure
         
       },
     });
-    console.log('Response Status:', response.status);
-    console.log('Response Data:', response.data);
-    console.log("getflights");
-    console.log('flights pricing : ', response);
     const json = response.data;
-    console.log("flights json: ", json);
+    console.log('json: ', json);
 
     if (json && json.length > 0) {
-      console.log("it runs here!");
-      console.log("whats this",json);
       return json;
     }
   } catch (error) {
-    console.log("does it ever run here?");
     if (error.response && error.response.status === 429) {
       console.warn('Rate limit exceeded. Retrying in 60 seconds...');
       await new Promise(resolve => setTimeout(resolve, 60000)); // Wait for 60 seconds

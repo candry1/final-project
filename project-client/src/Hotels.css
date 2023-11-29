@@ -1,0 +1,83 @@
+/* Hotels.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    color: #000000;
+  }
+
+  
+  /* Accordion styling */
+  .Accordion {
+    margin-bottom: 20px;
+  }
+  
+  .AccordionSummary {
+    background-color: #ddd;
+  }
+  
+  .AccordionDetails {
+    padding: 10px;
+    background-color: #eee;
+  }
+  
+  .Typography {
+    margin-bottom: 10px;
+  }
+  
+  .selected-button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+
+.accordion-summary {
+    width: 100%; /* Full width */
+  max-width: 100%;
+  }
+
+  .AccordionContainer {
+    max-width: 600px; /* Set your desired maximum width */
+    margin: 0 auto; /* Center the accordion container */
+  }
+  
+  .AccordionSummary {
+    background-color: #2196F3; /* Blue background */
+    color: #fff; /* White text */
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 1px solid #1976D2; /* Slightly darker blue border */
+    border-radius: 8px 8px 0 0; /* Rounded corners (top only) */
+  }
+  
+  .AccordionDetails {
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 0 0 8px 8px; /* Rounded corners (bottom only) */
+  }
+
+
+  .selected-accordion {
+    border: 2px solid red; /* Change the color as needed */
+  }
+  

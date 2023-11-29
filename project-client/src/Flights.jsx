@@ -14,27 +14,34 @@ import {
   ExpandMore as ExpandIcon,
 } from "@mui/icons-material";
 
-const Flights = ({ submissionInfo, onSubmit }) => {
+const Flights = ({ submissionInfo, onSubmit, selectedFlight, setSelectedFlight, selectedHotel, onChooseHotel,setOnChooseFlight, setSelectedFlightPrice, selectedFlightPrice}) => {
     const [activeFlightId, setActiveFlightId] = useState(false);
     const [flights, setFlights] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState();
     const handleChange = (flightId) => (event, expanded) => {
         setActiveFlightId(expanded ? flightId : false);
     };
-        
+    let maxPrice = parseInt(submissionInfo.budget - selectedHotel, 10);
 
     useEffect(() => {
-        if (onSubmit = true) {
+        if (selectedHotel) {
+          console.log('onChooseHotel: ', selectedHotel);
             setLoading(true); // Set loading to true when fetching starts
             console.log("getting flights count");
-            getFlights(submissionInfo.origin, submissionInfo.destination, "2024-05-02", 1, "2024-05-10", 800)
+            console.log("max price", maxPrice);
+
+            getFlights(submissionInfo.origin, submissionInfo.destination, submissionInfo.checkInDate, submissionInfo.numOfTravelers, submissionInfo.checkOutDate, maxPrice)
                 .then((flights) => {
+                  console.log('flights: ', flights);
+                  
                     // Sort flights by price in ascending order
                     const sortedFlights = flights.sort((a, b) => a.price.total - b.price.total);
                     // Take the first 5 flights (the cheapest ones)
                     const cheapestFlights = sortedFlights.slice(0, 5);
                     console.log('cheapestFlights: ', cheapestFlights);
+                    // console.log('flights: ', flights);
                     setFlights(cheapestFlights);
+                    
                 })
                 .catch((error) => {
                     // Handle errors if needed
@@ -44,23 +51,34 @@ const Flights = ({ submissionInfo, onSubmit }) => {
         } else {
             setFlights(null);
         }
-    }, [onSubmit]);
+    }, [selectedHotel]);
 
 
     return (
         <div>
         <h1>Flights</h1>
+        {!onChooseHotel && <p>Please choose a hotel to see flights... </p> } {}
         {loading && <p>Loading Your Flights... <CircularProgress/></p> } {}
-        {flights && flights.length === 0 && !loading && <p>No flights available for your search.</p>}
-        {flights &&
-          flights.map((flight) => (
-            <FlightDetails
-              key={flight.id}
-              flight={flight}
-              activeFlightId={activeFlightId}
-              onChange={(id) => setActiveFlightId(id)}
-            />
-          ))}
+        {flights && flights.length === 0 && !loading && <p>No flights available for your search. 
+          Your budget after hotel is ${(submissionInfo.budget - selectedHotel).toFixed(2)}.</p>}
+          {flights && flights.length > 0 && (
+          <div>
+            <p>Your budget after hotel is ${(submissionInfo.budget - selectedHotel).toFixed(2)}</p>
+            {flights.map((flight) => (
+              <FlightDetails
+                key={flight.id}
+                flight={flight}
+                activeFlightId={activeFlightId}
+                onChange={(id) => setActiveFlightId(id)}
+                selectedFlight={selectedFlight}
+                setSelectedFlight={setSelectedFlight}
+                setOnChooseFlight={setOnChooseFlight}
+                setSelectedFlightPrice={setSelectedFlightPrice}
+                selectedFlightPrice={selectedFlightPrice}
+              />
+            ))}
+          </div>
+      )}
       </div>
   );
 };
