@@ -13,7 +13,12 @@ import {
   ExpandMore as ExpandIcon,
 } from "@mui/icons-material";
 
-const FlightDetails = ({ flight, activeFlightId, onChange }) => {
+const FlightDetails = ({ flight, activeFlightId, onChange, setSelectedFlight, selectedFlight, setOnChooseFlight, setSelectedFlightPrice,selectedFlightPrice}) => {
+
+  const [selectedOutboundFlightId, setSelectedOutboundFlightId] = useState(null);
+  const [selectedReturnFlightId, setSelectedReturnFlightId] = useState(null);
+
+  const [selectedFlightId, setSelectedFlightId] = useState(null);
     function formatDuration(isoDuration) {
         const durationRegex = /PT(\d+H)?(\d+M)?/;
         const matches = isoDuration.match(durationRegex);
@@ -40,7 +45,7 @@ const FlightDetails = ({ flight, activeFlightId, onChange }) => {
     } = flight;
     
   
-        const active = activeFlightId === id;
+          const active = activeFlightId === id;
              // Extracting airline and departure information
           const firstSegment = itineraries[0]?.segments[0];
           const airlineCode = firstSegment?.carrierCode;
@@ -58,12 +63,36 @@ const FlightDetails = ({ flight, activeFlightId, onChange }) => {
           // Format date and time
           const formattedDepartureDateTime = new Date(departureDateTime).toLocaleString();
           const formattedArrivalDateTime = new Date(arrivalDateTime).toLocaleString()
+          const chooseFlight = (id) => {
+            if (flight.itineraries.length === 1) {
+              // Only outbound flight, set the outbound flight id
+              setSelectedOutboundFlightId(id);
+              setSelectedReturnFlightId(null);
+              setSelectedFlightId(id); 
+            } else {
+              // Return flight, set the return flight id
+              setSelectedReturnFlightId(id);
+              setSelectedOutboundFlightId(null);
+              setSelectedFlightId(id);
+            }
+        
+            setSelectedFlight(id);
+            setOnChooseFlight(true);
+            setSelectedFlightPrice(price?.total)
+            console.log("selectedFlight", selectedFlight);
+            console.log("selectedFlightPrice", selectedFlightPrice);
+          };
          
     return (
       <Accordion
         key={id}
         expanded={active}
         onChange={(event, expanded) => onChange(expanded ? id : false)}
+        className={
+        (selectedFlight === id)
+          ? "selected-accordion"
+          : ""
+      }
       >
             <AccordionSummary expandIcon={<ExpandIcon />}>
             <div>
@@ -125,6 +154,12 @@ const FlightDetails = ({ flight, activeFlightId, onChange }) => {
                     </div>
                   ))}
               </div>
+              <button 
+               onClick={() => chooseFlight(id)}
+               className={selectedFlight === id ? "selected-button" : ""}
+            >
+              Choose this flight
+            </button>
             </AccordionDetails>
           </Accordion>
         </AccordionDetails>

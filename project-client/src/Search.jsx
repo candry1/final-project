@@ -13,7 +13,6 @@ const Search = ({ setCityCode, updateOrigin }) => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    console.log(loading);
     const initiateSearch = async () => {
       setLoading(true); // Set loading to true when starting the search
       const { process, cancel } = search(inputValue);

@@ -13,7 +13,6 @@ const SearchDestination = ({ setDestinationCode, updateDestination }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    console.log(loading);
     const initiateSearch = async () => {
       setLoading(true); // Set loading to true when starting the search
       const { process, cancel } = search(inputValue);
@@ -42,7 +41,6 @@ const SearchDestination = ({ setDestinationCode, updateDestination }) => {
   }, [inputValue]);
 
   const handleCityChange = (event, newValue) => {
-    console.log("newValue: ", newValue);
     if (newValue) {
       setDestinationCode(newValue.code);
       updateDestination(newValue.code); // Update the origin in SubmissionForm

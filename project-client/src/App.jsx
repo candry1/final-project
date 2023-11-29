@@ -9,23 +9,28 @@ function App() {
   const [submissionInfo, setSubmissionInfo] = useState({
     origin: "",
     destination: "",
-    budget: 0,
+    budget: 1000,
     checkInDate: "",
     checkOutDate: "",
-    numOfTravelers: 0,
+    numOfTravelers: 1,
   });
 
   return (
     <>
       <div className="App">
         <BrowserRouter>
-          <SubmissionForm
-            submissionInfo={submissionInfo}
-            setSubmissionInfo={setSubmissionInfo}
-            onSubmit={onSubmit}
-            setOnSubmit={setOnSubmit}
-          />
           <Routes>
+            <Route
+              path="/"
+              element={
+                <SubmissionForm
+                  submissionInfo={submissionInfo}
+                  setSubmissionInfo={setSubmissionInfo}
+                  onSubmit={onSubmit}
+                  setOnSubmit={setOnSubmit}
+                />
+              }
+            />
             <Route
               path="/vacation-planner"
               element={
