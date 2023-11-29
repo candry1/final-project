@@ -1,5 +1,7 @@
 // router.js
-const { API_KEY, API_SECRET, TEST_MODE } = require("./config");
+import axios from 'axios';
+
+const { API_KEY, API_SECRET, TEST_MODE, TICKET_MASTER_API_KEY } = require("./config");
 const Amadeus = require("amadeus");
 const express = require("express");
 const amadeus = new Amadeus({ clientId: API_KEY, clientSecret: API_SECRET }); // Initialize Amadeus
@@ -149,20 +151,27 @@ router.get(`/${API}/flight-offers`, async (req, res) => {
   }
 });
 
+
+
+
+
+// router.get('/api/events', async (req, res) => {
+//   try {
+//     const { query } = req.query;
+//     const response = await axios.get(
+//       `https://app.ticketmaster.com/discovery/v2/events.json`,
+//       {
+//         params: {
+//           apikey: TICKET_MASTER_API_KEY,
+//           keyword: query,
+//         },
+//       }
+//     );
+//     res.json(response.data._embedded.events);
+//   } catch (error) {
+//     console.error('Error fetching events:', error);
+//     res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// });
+
 module.exports = router;
-
-// only during data collection:
-// call your functions with specific parameters
-// save the resulting json response to a file with a specific name
-// comment out when just using as part of the web ap
-const create_testing_data = async () => {
-  const response = await amadeus.shopping.hotelOffersSearch.get({
-    hotelIds:
-      "UZCHIEE1,UZCHI210,UZCHI123,UZCHI274,UZCHIMG1,WACHI646,WHCHI509,WHCHI005,WICHIRIV,WICHICON,WICHI760,WICHI526,WICHI724,WKCHIEBB,WVCHI372,WVCHI001,WWCHI100,WYCHIBGH,XKCHIAM1,XLCHIGCH,XVCHIBLS,XVCHIBUS,XVCHINRS,XVCHICOS,XVCHIEMS,XVCHISHS,XVCHIWRS,XVCHIWGS,YOCHI162,YPCHIWRH,YXCHI405,YXCHID8E,YXCHIWHI,YXCHIHRH,YXCHICIM,YXCHIDWP,YZCHI0AD,YZCHI37F,YZCHIEFA,YZCHI892",
-    adults: 2,
-  });
-
-  console.log(response.body);
-};
-
-// create_testing_data();
