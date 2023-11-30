@@ -97,7 +97,7 @@ const Hotels = ({ submissionInfo, onSubmit, selectedFlight, selectedHotel, setSe
                 await delay(5000); // Wait for 1 second between requests
                 const pricingOffer = await getHotelPricing(stringHotelIds, submissionInfo.numOfTravelers, submissionInfo.checkInDate, submissionInfo.checkOutDate);
                 // console.log('pricingOffer count: ', pricingOffer);
-             
+                setLoading(false);
                 if (pricingOffer.data && pricingOffer.data.length > 0) {
                   const offersArray = pricingOffer.data;
                   // console.log('offersArray: ', offersArray);
@@ -161,6 +161,12 @@ useEffect(() => {
     <div>
       <h1>Hotels</h1>
       {loading && <p>Loading Your Hotels... <CircularProgress/></p> } {}
+      {!loading && hotels.length === 0 && (
+        <p>No hotels available for your search.</p>
+      )}
+      {!loading && hotelAndPricingArray.length === 0 && (
+        <p>No hotels available for your search.</p>
+      )}
       {!loading && hotels !== null && hotels.length === 0 && hotelAndPricingArray.length === 0 && (
         <p>No hotels available for your search.</p>
       )}

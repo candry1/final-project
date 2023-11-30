@@ -148,5 +148,27 @@ const getFlights = async (originLocationCode, destinationLocationCode, departure
   return [];
 };
 
+const getEvents = async (city,startDateTime,endDateTime ) => {
+  console.log('city,startDateTime,endDateTime: ', city,startDateTime,endDateTime);
+  try {
+    const response = await axios.get(`/api/events`, {
+      params: {
+        city: city,
+        startDateTime: startDateTime,
+        endDateTime: endDateTime,
+      },
+    });
+    console.log('response events:', response);
+    const json = response.data;
+    console.log('json events: ', json);
 
-export { search, getHotels, getHotelPricing, getFlights };
+    if (json && json.length > 0) {
+      return json;
+    }
+  } catch(error) {
+    console.error('Error fetching events pricing:', error);
+    throw error; // Re-throw other errors
+  }
+  return [];
+}
+export { search, getHotels, getHotelPricing, getFlights, getEvents };

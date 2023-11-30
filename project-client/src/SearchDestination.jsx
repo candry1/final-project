@@ -6,7 +6,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import MagnifierIcon from "@mui/icons-material/Search";
 import { search } from "./api";
 
-const SearchDestination = ({ setDestinationCode, updateDestination }) => {
+const SearchDestination = ({ setDestinationCode, updateDestination, setCityName, cityName }) => {
   // const classes = useStyles();
   const [inputValue, setInputValue] = useState("");
   const [options, setOptions] = useState([]);
@@ -60,10 +60,13 @@ const SearchDestination = ({ setDestinationCode, updateDestination }) => {
           const withoutComma = firstWord.replace(',', ''); // Remove comma if present
           setInputValue(withoutComma);
         }}
-        getOptionLabel={(option) =>
-          option.city
+        getOptionLabel={(option) => {
+          setCityName(option.city);
+          console.log("city Name", cityName);
+          return option.city
             ? `${option.city}, ${option.state || ""}, ${option.country}`
-            : ""
+            : "";
+        }
         }
         renderInput={(params) => (
           <TextField
