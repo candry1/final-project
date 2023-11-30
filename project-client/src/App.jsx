@@ -12,6 +12,8 @@ function App() {
   const [selectedFlight, setSelectedFlight] = useState(null);
   const [selectedHotelInfo, setSelectedHotelInfo] = useState({});
   const [selectedFlightInfo, setSelectedFlightInfo] = useState({});
+  const [vacationButton, setVacationButton] = useState(false);
+  const [cityName, setCityName] = useState("");
   const [submissionInfo, setSubmissionInfo] = useState({
     origin: "",
     destination: "",
@@ -35,6 +37,8 @@ function App() {
                   setSubmissionInfo={setSubmissionInfo}
                   onSubmit={onSubmit}
                   setOnSubmit={setOnSubmit}
+                  setCityName={setCityName}
+                  cityName={cityName}
                 />
               }
             />
@@ -54,6 +58,7 @@ function App() {
                   setSelectedHotelInfo={setSelectedHotelInfo}
                   selectedFlightInfo={selectedFlightInfo}
                   setSelectedFlightInfo={setSelectedFlightInfo}
+                  setVacationButton={setVacationButton}
                 />
               }
             />
@@ -66,6 +71,9 @@ function App() {
                   selectedFlight={selectedFlight}
                   selectedHotelInfo={selectedHotelInfo}
                   selectedFlightInfo={selectedFlightInfo}
+                  setVacationButton={setVacationButton}
+                  vacationButton={vacationButton}
+                  cityName={cityName}
                 />
               }
             />

@@ -2,8 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import airlineCodeToName from './airlineCodes';
 import "./FinalVacationPlan.css";
+import Events from "./Events"
 
-const FinalVacationPlan = ({ selectedHotel, selectedFlight, submissionInfo, selectedHotelInfo, selectedFlightInfo }) => {
+const FinalVacationPlan = ({ selectedHotel, selectedFlight, submissionInfo, selectedHotelInfo, selectedFlightInfo, 
+  vacationButton, setVacationButton, cityName }) => {
   console.log('selectedFlightInfo: ', selectedFlightInfo);
   console.log('selectedFlight: ', selectedFlight);
   console.log('selectedHotel: ', selectedHotel);
@@ -70,7 +72,7 @@ const FinalVacationPlan = ({ selectedHotel, selectedFlight, submissionInfo, sele
         <p className="info-item">Total Price: ${selectedHotelInfo.offers.at(0).price.total}</p>
         <p className="info-item">Total Price: ${selectedHotelInfo.offers.at(0).price.total}</p>
   
-                {selectedHotelInfo.offers.at(0).price && selectedHotelInfo.offers.at(0).price ? (
+                {selectedHotelInfo.offers.at(0).price && selectedHotelInfo.offers.at(0).price && selectedHotelInfo.offers.at(0).price.variations.average.base ? (
                   <p>Price Per Night: ${selectedHotelInfo.offers.at(0).price.variations.average.base}</p>
                 ) : (
                   <p>Price Per Night: N/A</p>
@@ -113,7 +115,13 @@ const FinalVacationPlan = ({ selectedHotel, selectedFlight, submissionInfo, sele
         <p className="info-item">Check Out Date: {submissionInfo.checkOutDate}</p>
         <p className="info-item">Total Price of Trip: ${((parseFloat(selectedHotelInfo.offers.at(0).price.total) + parseFloat(price.total)).toFixed(2))}</p>
       </div>
+      <div className="events">
+        <h2>Events:</h2>
+        <Events submissionInfo={submissionInfo} 
+        vacationButton={vacationButton} setVacationButton={vacationButton} cityName={cityName}/>
+      </div>
     </div>
+
   );
 };
 

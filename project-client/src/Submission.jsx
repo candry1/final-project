@@ -5,7 +5,7 @@ import { SearchDestination } from "./SearchDestination";
 import "./Submission.css";
 import { useNavigate } from "react-router-dom";
 
-function SubmissionForm({ submissionInfo, setSubmissionInfo,onSubmit, setOnSubmit }) {
+function SubmissionForm({ submissionInfo, setSubmissionInfo,onSubmit, setOnSubmit, cityName, setCityName}) {
   const navigate = useNavigate();
   const [cityCode, setCityCode] = useState(null);
   const [destinationCode, setDestinationCode] = useState(null);
@@ -108,10 +108,12 @@ function SubmissionForm({ submissionInfo, setSubmissionInfo,onSubmit, setOnSubmi
     <div className="SubmissionForm">
       <h1>Submission Form</h1>
       <form noValidate onSubmit={submitForm}>
-        <Search setCityCode={setCityCode} updateOrigin={updateOrigin} />
+        <Search setCityCode={setCityCode} updateOrigin={updateOrigin} cityName={cityName} setCityName={setCityName} />
         <SearchDestination
           setDestinationCode={setDestinationCode}
           updateDestination={updateDestination}
+          cityName={cityName}
+          setCityName={setCityName}
         />
         <br />
         <br />

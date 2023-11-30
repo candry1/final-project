@@ -6,7 +6,7 @@ import PropTypes from "prop-types"; // Import PropTypes
 import { useNavigate } from "react-router-dom";
 
 const VacationPlanner = ({ submissionInfo, onSubmit, selectedHotel, setSelectedHotel, selectedFlight, setSelectedFlight, selectedHotelInfo, setSelectedHotelInfo,
-  selectedFlightInfo, setSelectedFlightInfo}) => {
+  selectedFlightInfo, setSelectedFlightInfo, setVacationButton}) => {
   // const [selectedHotel, setSelectedHotel] = useState(0);
   // const [selectedFlight, setSelectedFlight] = useState(0);
   const [selectedFlightPrice, setSelectedFlightPrice] = useState(0);
@@ -18,6 +18,7 @@ const VacationPlanner = ({ submissionInfo, onSubmit, selectedHotel, setSelectedH
 
   const handleButtonClick = () => {
     //  pass data to the next page using the state object
+    setVacationButton(true);
     navigate("/final-vacation-plan", { state: { selectedHotel, selectedFlight, submissionInfo } });
   };
 
