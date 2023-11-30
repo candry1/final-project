@@ -4,9 +4,6 @@
 
 [Demo](https://uic.zoom.us/rec/share/RBBu8un2c875CaNBxSBApxer3yeD8PLVZLXKJJ-IsmCe_Te1Aoe_ywBpUdzdwVQD.SznVkzSefv_OWqHw?startTime=1698850145000) | [Frontend deployed](https://getawayguide1234.onrender.com/) | [Backend deployed](https://getawayguide123.onrender.com/) | [Checkpoint 1 plans](https://getawayguide09.onrender.com/)
 
-## What does your application currently do?
-
-With what we have right now, a user can navigate to our website and begin entering input related to their trip. The website can process their starting city, their destination, the amount of people their traveling with, their budget, and their travel dates. With selecting travel dates, we were able to implement a calednar feature, verse just letting our user determine teh formatting of the dates they'll be traveling. We were able to make use of the Amadeus Hotel Search API and the City Search API in order to give the user legitimate options for where they can travel throughout the world. Our Hotel Search is currently working and is able to take in some input about the destination and return a list of hotels in this city to the screen based on what is provided.
 
 ## What does your application currently do?
 
@@ -23,3 +20,9 @@ Our web app will take into account your budget, calculating what you can afford,
 ## What security and privacy concerns do you expect you (as developers) or your users to have with this application?
 
 With this, whatever the users decide to book, we want that to be completely private(location, dates of travel, where they'll stay). Prices we get, we want them to be verified, to prevent overpaying unnecessarily or through the interference of someone else. We'll also look into our APIs to see how those requests are secure, so that noone will be able to get information from our third-party helpers.
+
+
+A couple of notes...
+- Please be patient with our program, as some functionalities are slow(search auto-correct results, hotel results). Sometimes it may seem like there are no results, but after a couple of seconds you'll see them.
+
+**To run:** Please open both the front-end and back-end links. The back-end will give an error, but needs to be opened
