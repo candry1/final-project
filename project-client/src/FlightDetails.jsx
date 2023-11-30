@@ -119,7 +119,7 @@ const FlightDetails = ({ flight, activeFlightId, onChange, setSelectedFlight, se
             <div>
                 
             Outbound Flight
-                <Typography>Arrival Airport: {arrivalAirportCode}</Typography>
+                {/* <Typography>Arrival Airport: {arrivalAirportCode}</Typography> */}
                 <Typography>Arrival Date and Time: {formattedArrivalDateTime}</Typography>
                 <Typography>Flight Duration: {readableDuration}</Typography>
                 <Typography>Number of Stops: {numberOfStops}</Typography>
